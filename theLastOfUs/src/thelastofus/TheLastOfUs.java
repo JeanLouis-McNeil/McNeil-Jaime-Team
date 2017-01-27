@@ -5,6 +5,7 @@
  */
 package thelastofus;
 
+import byui.cit260.theLastOfUs.model.Map;
 import byui.cit260.theLastOfUs.model.Player;
 
 /**
@@ -34,6 +35,15 @@ public class TheLastOfUs {
     
     String playerInfo2 = playerTwo.toString();
         System.out.println(playerInfo2);
+        
+        Map gameMap = new Map();
+        
+    gameMap.setRowCount(8);
+    gameMap.setColumnCount(16);
+    
+    
+    String gameInfo = gameMap.toString();
+        System.out.println(gameInfo);
     }
     
     
