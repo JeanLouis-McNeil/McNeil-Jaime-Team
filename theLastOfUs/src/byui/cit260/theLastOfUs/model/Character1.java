@@ -5,13 +5,14 @@
  */
 package byui.cit260.theLastOfUs.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author iu
  */
-public class Character1 {
+public class Character1 implements Serializable{
     private String name;
     private String description;
     private int coordinatesX;

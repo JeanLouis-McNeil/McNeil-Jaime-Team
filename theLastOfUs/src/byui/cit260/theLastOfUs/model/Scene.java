@@ -5,13 +5,14 @@
  */
 package byui.cit260.theLastOfUs.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author iu
  */
-public class Scene {
+public class Scene implements Serializable{
     private String name;
     private String description;
     private Boolean blockedLocation;

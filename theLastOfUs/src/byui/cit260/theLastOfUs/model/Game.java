@@ -5,11 +5,13 @@
  */
 package byui.cit260.theLastOfUs.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author iu
  */
-public class Game {
+public class Game implements Serializable{
     private double totalTime;
     private int noPeople;
 
