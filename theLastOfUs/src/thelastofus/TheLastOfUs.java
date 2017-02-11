@@ -11,6 +11,11 @@ import byui.cit260.theLastOfUs.model.Location;
 import byui.cit260.theLastOfUs.model.Map;
 import byui.cit260.theLastOfUs.model.Player;
 import byui.cit260.theLastOfUs.model.Scene;
+import byui.cit260.theLastOfUs.model.Scene2;
+import byui.cit260.theLastOfUs.model.Scene3;
+import byui.cit260.theLastOfUs.model.Scene4;
+import byui.cit260.theLastOfUs.model.Scene5;
+import byui.cit260.theLastOfUs.model.Scene6;
 
 /**
  *
@@ -81,9 +86,48 @@ public class TheLastOfUs {
         hospitalScene1.setDisplaySymbol(true);
     String sceneInfo = hospitalScene1.toString();
         System.out.println(sceneInfo);
+    
+    
+    Scene2 findWayOut = new Scene2();
+        findWayOut.setName("Find way out!");
+        findWayOut.setDescription("A brief thing about what you have to do first befor getting out!");
+        findWayOut.setTravelTime(5);
+        findWayOut.setDisplaySymbol(true);
+    String scene2Info = findWayOut.toString();
+        System.out.println(scene2Info);
+        
+    Scene3 searchForResources = new Scene3();
+        searchForResources.setName("Search for resources");
+        searchForResources.setDescription("You are not the same as before and you need to be healthy.");
+        searchForResources.setTravelTime(7);
+        searchForResources.setDisplaySymbol(true);
+    String scene3Info = searchForResources.toString();
+        System.out.println(scene3Info);
+        
+    Scene4 superMarket = new Scene4();
+        superMarket.setName("Supermarket Duties");
+        superMarket.setDescription("Taking some items in order to have food on road.");
+        superMarket.setTravelTime(5);
+        superMarket.setDisplaySymbol(true);
+    String scene4Info = superMarket.toString();
+        System.out.println(scene4Info);
+        
+    Scene5 toolsRoom = new Scene5();
+        toolsRoom.setName("The Toolsromm");
+        toolsRoom.setDescription("Find tools for better outside experience.");
+        toolsRoom.setTravelTime(6);
+        toolsRoom.setDisplaySymbol(true);
+    String scene5Info = toolsRoom.toString();
+        System.out.println(scene5Info);
+        
+    Scene6 carRental = new Scene6();
+        carRental.setName("The Drugstore");
+        carRental.setDescription("Find medics and grugs for road trip.");
+        carRental.setTravelTime(5);
+        carRental.setDisplaySymbol(true);
+    String scene6Info = carRental.toString();
+        System.out.println(scene6Info);
+    
     }
-    
-    
-    
     
 }
