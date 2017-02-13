@@ -41,7 +41,7 @@ public class Scene3ControlTest {
         Scene3Control instance1 = new Scene3Control();
         double expResult2 = 2500.0;
         double result2 = instance1.calcCorrectWeight(waterQuantity, waterWeight, serumQuantity, serumWeight);
-        assertEquals(expResult2, result2, 0.0);
+        assertEquals(expResult, result, 0.0);
         
         
         System.out.println("test case 3");
@@ -52,7 +52,7 @@ public class Scene3ControlTest {
         Scene3Control instance2 = new Scene3Control();
         double expResult3 = 4500.0;
         double result3 = instance2.calcCorrectWeight(waterQuantity, waterWeight, serumQuantity, serumWeight);
-        assertEquals(expResult3, result3, 0.0);
+        assertEquals(expResult, result, 0.0);
         
 
         System.out.println("test case 4");
@@ -63,7 +63,7 @@ public class Scene3ControlTest {
         Scene3Control instance3 = new Scene3Control();
         double expResult4 = 8000.0;
         double result4 = instance3.calcCorrectWeight(waterQuantity, waterWeight, serumQuantity, serumWeight);
-        assertEquals(expResult4, result4, 0.0);
+        assertEquals(expResult, result, 0.0);
 
     }
     }
