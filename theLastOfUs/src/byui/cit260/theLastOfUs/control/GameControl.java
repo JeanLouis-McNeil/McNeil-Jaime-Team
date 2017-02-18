@@ -5,10 +5,23 @@
  */
 package byui.cit260.theLastOfUs.control;
 
+import byui.cit260.theLastOfUs.model.Player;
+import thelastofus.TheLastOfUs;
+
 /**
  *
  * @author iu
  */
 public class GameControl {
+
+    public static Player createPlayer(String playersName) {
+        if (playersName == null){
+            return null;
+        }
+        Player player = new Player();
+        player.setName(playersName);
+        TheLastOfUs.setPlayer(player); //save the player.
+        return player;
+                }
     
 }

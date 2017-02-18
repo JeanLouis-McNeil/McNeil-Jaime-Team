@@ -5,6 +5,7 @@
  */
 package thelastofus;
 
+import byui.cit260.theLastOfUs.View.StartProgramView;
 import byui.cit260.theLastOfUs.model.Character1;
 import byui.cit260.theLastOfUs.model.Game;
 import byui.cit260.theLastOfUs.model.Location;
@@ -23,6 +24,8 @@ import byui.cit260.theLastOfUs.model.Scene6;
  */
 public class TheLastOfUs {
 
+    private static Game currentGame = null;
+    private static Player player = null;
     /**
      * @param args the command line arguments
      */
@@ -127,7 +130,29 @@ public class TheLastOfUs {
         carRental.setDisplaySymbol(true);
     String scene6Info = carRental.toString();
         System.out.println(scene6Info);
+        
+        //Create a StartProgramView display.
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
+        
+        
     
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        TheLastOfUs.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        TheLastOfUs.player = player;
     }
     
 }
