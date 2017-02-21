@@ -5,7 +5,9 @@
  */
 package byui.cit260.theLastOfUs.View;
 
+import byui.cit260.theLastOfUs.control.GameControl;
 import java.util.Scanner;
+import thelastofus.TheLastOfUs;
 
 /**
  *
@@ -28,7 +30,7 @@ public class MainMenuView {
             + "\nS - Save game                                                 "
             + "\nQ - Quit                                                      "
             ;
-      this.promptMessage = "\nPlease choose a menu option.";
+    this.promptMessage = "\nPlease choose a menu option.";
     //Display the menu
     this.displayMainMenuView();
     }
@@ -92,7 +94,9 @@ public class MainMenuView {
     }
 
     private void startNewGame() {
-    System.out.println("\n*** startNewGame function called ***");
+    GameControl.createNewGame(TheLastOfUs.getPlayer());
+    GameMenuView gameMenu = new GameMenuView();
+    gameMenu.displayMenu();
     }
 
     private void startExistingGame() {
