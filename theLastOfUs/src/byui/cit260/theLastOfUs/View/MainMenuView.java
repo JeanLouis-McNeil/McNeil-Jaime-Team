@@ -15,8 +15,10 @@ public class MainMenuView {
     private String menu;
     private String promptMessage;
     
+  
+    
     public MainMenuView(){
-    this.menu = "\n"
+           this.menu = "\n"
             + "\n--------------------------------------------------------------"
             + "\n| Main Menu                                                  |"
             + "\n--------------------------------------------------------------"
@@ -26,7 +28,15 @@ public class MainMenuView {
             + "\nS - Save game                                                 "
             + "\nQ - Quit                                                      "
             ;
+      this.promptMessage = "\nPlease choose a menu option.";
+    //Display the menu
+    this.displayMainMenuView();
     }
+    
+     
+    
+
+    
     public void displayMainMenuView() {
         
         boolean done = false;
@@ -49,7 +59,7 @@ public class MainMenuView {
     value = keyboard.nextLine();
     value = value.trim();
     
-    if (value.length() > 1) {
+    if (value.isEmpty()) {
         System.out.println("\n Invalind value : Value cannot be more than one character.");
         continue;
         }
