@@ -25,7 +25,5 @@ public class GameControl {
                 }
 
     public static void createNewGame(Player player) {
-        System.out.println("\n*** createNewGame stub function called ***");
-    }
-    
+    System.out.println("\n*** createNewGame function called. ***");}
 }

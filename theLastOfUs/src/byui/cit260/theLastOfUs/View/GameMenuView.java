@@ -12,7 +12,6 @@ package byui.cit260.theLastOfUs.View;
 class GameMenuView {
 
     void displayMenu() {
-        System.out.println("\n***displayMenu() stub function called ***");
-    }
+        System.out.println("\ndisplayMenu function called.");}
     
 }
