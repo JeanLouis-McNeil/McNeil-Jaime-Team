@@ -86,7 +86,7 @@ public class MainMenuView {
         break;  
     }
     return value;
-    };
+    }
 
     private void startNewGame() {
        GameControl.createNewGame(TheLastOfUs.getPlayer());

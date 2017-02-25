@@ -85,6 +85,7 @@ public class FindResourcesView {
         this.menu = "\n|Choose from the two ways you can have water. Jugs or gallons|"
                 + "\nJ - Jugs                                                  "
                 + "\nG - Gallons"
+                + "\nQ - Quit"
                 ;
         this.displayWaterMenu();
     }
@@ -95,7 +96,7 @@ public class FindResourcesView {
                String menuOption3 = this.getMenuOption3();
                if (menuOption3.toUpperCase().equals("Q"))
                    return;
-               done = this.doAction(menuOption3);
+               done = this.doChoice(menuOption3);
         } while(!done);
         }
     public boolean doChoice(String menuOption3){
@@ -109,7 +110,7 @@ public class FindResourcesView {
             case "G":
                     this.calcGalAmnt();
                     break;
-            default:
+            default :
                 System.out.println("\n***Invalid Selection, Try Again!***");
                 break;
         }
@@ -144,13 +145,82 @@ public class FindResourcesView {
         System.out.println("\n*** You chose to drink in gallons ***");}
     
     
-    //Other choices of resources.
 
+//Serum choices
     private void chooseSerumAmount() {
-        System.out.println("\n*** calcSerumAmount() function called ***");}
+        this.menu = "\n|Choose from these ways to have serum. Packs or injection|"
+                + "\nP - Packs                                                 "
+                + "\nI - Injection"
+                + "\nQ - Quit"
+                ;
+    this.displaySerumMenu();
+    }
+ private void displaySerumMenu() {
+     boolean done = false;
+        do {
+               System.out.println(menu);
+               String menuOption4 = this.getMenuOption4();
+               if (menuOption4.toUpperCase().equals("Q"))
+                   return;
+               done = this.doChoices(menuOption4);
+        } while(!done);
+     
+        }
+ private boolean doChoices(String menuOption4) {
+        menuOption4 = menuOption4.toUpperCase();// convert menuOption to upper case.
+        
+        switch (menuOption4) {
+            case "P":
+                    this.calcPackAmnt();
+                    break;
+            case "I":
+                    this.calcInjAmnt();
+                    break;
+            default :
+                System.out.println("\n***Invalid Selection, Try Again!***");
+                break;
+        }
+        return false;
+ }
+  private String getMenuOption4() {
+      Scanner inp =  new Scanner(System.in);//get infile for keyboard
+    String value = ""; //value to be returned
+    boolean valid = false; //initialize to not valid
+    
+    while (!valid) { 
+            System.out.println("Choose a menu option!");
+    
+    value = inp.nextLine();
+    value = value.trim();
+    
+    if (value.isEmpty()) {
+        System.out.println("\n Invalind value : Value cannot be more than one character.");
+        continue;
+        }
+        break;  
+    }
+    return value;
+        }
+ 
+     private void calcPackAmnt() {
+        System.out.println("\n*** calcPackAmnt() function called ***");}
 
+    private void calcInjAmnt() {
+        System.out.println("\n*** calcInjAmnt() function called ***");}
+    
+    
+    
+ //Bar menu
     private void chooseBarAmount() {
         System.out.println("\n*** calcBarAmount() function called ***");}
+
+
+
+    
+
+   
+
+   
 
     
 
