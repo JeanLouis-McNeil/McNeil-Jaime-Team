@@ -5,8 +5,10 @@
  */
 package byui.cit260.theLastOfUs.View;
 
+import byui.cit260.theLastOfUs.control.GameControl;
 import byui.cit260.theLastOfUs.control.Scene3Control;
 import java.util.Scanner;
+import thelastofus.TheLastOfUs;
 
 /**
  *
@@ -17,7 +19,7 @@ public class FindResourcesView {
     private String prompt;
   
            void FindResources() {
-        this.menu =  "\n|Resources Menu                                      |"
+        this.menu =  "\n|THE WAKE UP!                                         |"
                     + "\nYou are now in a hospital after a year-long coma state"
                     + "\nand you are given a letter that tells you about a John"
                     + "\nwhich is living far from where you are now. You are gi"
@@ -25,7 +27,8 @@ public class FindResourcesView {
                     + "\ntrip. "
                 + "\nW - Water                                                 "
                 + "\nS - Serum                                                 "
-                + "\nB - Protein Bar                                           "
+                + "\nB - Protein Bar                                          "
+                + "\nG - Leave and find your way out.                          "
                 + "\nQ - Quit                                                  "
                 ;
         this.displayResMenuView();
@@ -53,6 +56,9 @@ public class FindResourcesView {
                     break;
             case "B":
                     this.chooseBarAmount();
+                    break;
+            case "G":
+                    this.goFindYourWay();
                     break;
             default :
                 System.out.println("\n***Invalid Selection, Try Again!***");
@@ -253,10 +259,15 @@ public class FindResourcesView {
     }
 
     private boolean doAction(int barOption) {
-        double result = Scene3Control.calcCorrectWeight(barOption, barOption);
+        double result = Scene3Control.calcCorrectWeight();
  
     return false;
 }
+
+    private void goFindYourWay() {
+               GameControl.createNewGame(TheLastOfUs.getPlayer());
+    LeaveHospitalView resMenu = new LeaveHospitalView();
+    resMenu.findWayOut();}
 }
        
 

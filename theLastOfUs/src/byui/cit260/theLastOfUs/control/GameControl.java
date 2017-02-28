@@ -23,7 +23,9 @@ public class GameControl {
         TheLastOfUs.setPlayer(player); //save the player.
         return player;
                 }
+    
 
     public static void createNewGame(Player player) {
-    System.out.println("\n*** createNewGame function called. ***");}
+    System.out.println("\n*** createNewGame function called. ***");
+    }
 }

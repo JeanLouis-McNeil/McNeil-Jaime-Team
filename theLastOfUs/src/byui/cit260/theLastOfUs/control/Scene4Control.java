@@ -5,11 +5,17 @@
  */
 package byui.cit260.theLastOfUs.control;
 
+import byui.cit260.theLastOfUs.model.Player;
+
 /**
  *
  * @author iu
  */
 public class Scene4Control {
+
+    public static void createNewScene(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         public double calculateRequiredWeight(int foodQuantity, double foodWeight, int drinkQuantity, double drinkWeight) {
         
             int food = 4;

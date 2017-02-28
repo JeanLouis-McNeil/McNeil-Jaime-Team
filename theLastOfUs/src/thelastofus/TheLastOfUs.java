@@ -26,6 +26,7 @@ public class TheLastOfUs {
 
     private static Game currentGame = null;
     private static Player player = null;
+    private static Character1 character;
     /**
      * @param args the command line arguments
      */
@@ -154,5 +155,11 @@ public class TheLastOfUs {
     public static void setPlayer(Player player) {
         TheLastOfUs.player = player;
     }
+
+    public static Character1 getCharacter1(){
+        return character;
+    }  
     
-}
+    public static void setCharacter1(Character1 character) {
+        TheLastOfUs.character = character;}
+    }

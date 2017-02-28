@@ -13,7 +13,9 @@ public class Scene3Control {
 
 
 
-    public static double calcCorrectWeight(double barQuantity, double barWeight) {
+    public static double calcCorrectWeight() {
+        double barQuantity = 0;
+        double barWeight = 0;
          double totalWeight = barWeight * barQuantity;
             
             return totalWeight;}
