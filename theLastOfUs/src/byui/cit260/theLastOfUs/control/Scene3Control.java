@@ -10,11 +10,12 @@ package byui.cit260.theLastOfUs.control;
  * @author iu
  */
 public class Scene3Control {
-        public double calcCorrectWeight(int waterQuantity, double waterWeight) {
-        
 
-            double totalWeight = waterWeight * waterQuantity;
+
+
+    public static double calcCorrectWeight(double barQuantity, double barWeight) {
+         double totalWeight = barWeight * barQuantity;
             
-            return totalWeight;
-        }
+            return totalWeight;}
+        
 }

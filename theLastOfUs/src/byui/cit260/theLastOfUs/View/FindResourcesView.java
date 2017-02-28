@@ -5,6 +5,7 @@
  */
 package byui.cit260.theLastOfUs.View;
 
+import byui.cit260.theLastOfUs.control.Scene3Control;
 import java.util.Scanner;
 
 /**
@@ -13,6 +14,7 @@ import java.util.Scanner;
  */
 public class FindResourcesView {
     private String menu;
+    private String prompt;
   
            void FindResources() {
         this.menu =  "\n|Resources Menu                                      |"
@@ -211,9 +213,52 @@ public class FindResourcesView {
     
     
  //Bar menu
-    private void chooseBarAmount() {
-        System.out.println("\n*** calcBarAmount() function called ***");}
+    private void chooseBarAmount(){
+        this.prompt = "\nENTER THE AMOUNT OF BAR NEEDED: ";
+        this.displayBarOption();
+        }
 
+    private void displayBarOption() {
+        boolean well = false;
+        do {
+            System.out.println(prompt);
+            int barOption = this.getBarOption();
+            well = this.doAction(barOption);
+                }
+   
+    while(!well);
+}
+
+    private int getBarOption() {
+        Scanner input= new Scanner(System.in);//get infile for keyboard
+    int value1 = 0;
+    boolean valid = false; //initialize to not valid
+    
+    while (!valid) { 
+            System.out.println("Enter the number here :");
+    
+    value1= input.nextInt();
+    
+    
+    if (value1 >= 1 && value1 <= 4) {
+        System.out.println("\nYou are allowed to use " + value1+ " bars.");
+    }
+    else {
+        System.out.println("\nYou cannot take more than four bars or less than one.");
+        continue;
+        }
+        break;  
+    }
+    return value1;
+    }
+
+    private boolean doAction(int barOption) {
+        double result = Scene3Control.calcCorrectWeight(barOption, barOption);
+ 
+    return false;
+}
+}
+       
 
 
     
@@ -229,7 +274,7 @@ public class FindResourcesView {
     
 
  
-}
+
 
 
 
