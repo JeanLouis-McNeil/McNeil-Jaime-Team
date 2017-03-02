@@ -153,8 +153,8 @@ class LeaveHospitalView {
     private void beginTrip() {
 
         Scene4Control.createNewScene(TheLastOfUs.getPlayer());
-    superMarketView resMenu = new superMarketView();
-    resMenu.doShopping();
+    superMarketView shopping = new superMarketView();
+    shopping.doShopping();
     }
 
 }

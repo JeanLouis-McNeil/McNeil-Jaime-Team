@@ -93,6 +93,7 @@ public class FindResourcesView {
         this.menu = "\n|Choose from the two ways you can have water. Jugs or gallons|"
                 + "\nJ - Jugs                                                  "
                 + "\nG - Gallons"
+                + "\nL- Leave and exit"
                 + "\nQ - Quit"
                 ;
         this.displayWaterMenu();
@@ -118,6 +119,8 @@ public class FindResourcesView {
             case "G":
                     this.calcGalAmnt();
                     break;
+            case "L" :
+                    this.goFindYourWay();
             default :
                 System.out.println("\n***Invalid Selection, Try Again!***");
                 break;
@@ -159,6 +162,7 @@ public class FindResourcesView {
         this.menu = "\n|Choose from these ways to have serum. Packs or injection|"
                 + "\nP - Packs                                                 "
                 + "\nI - Injection"
+                + "\nL - Leave and exit"
                 + "\nQ - Quit"
                 ;
     this.displaySerumMenu();
@@ -184,6 +188,8 @@ public class FindResourcesView {
             case "I":
                     this.calcInjAmnt();
                     break;
+            case "L" :
+                    this.goFindYourWay();        
             default :
                 System.out.println("\n***Invalid Selection, Try Again!***");
                 break;
@@ -258,16 +264,17 @@ public class FindResourcesView {
     return value1;
     }
 
-    private boolean doAction(int barOption) {
-        double result = Scene3Control.calcCorrectWeight();
- 
-    return false;
-}
+
 
     private void goFindYourWay() {
                GameControl.createNewGame(TheLastOfUs.getPlayer());
     LeaveHospitalView resMenu = new LeaveHospitalView();
     resMenu.findWayOut();}
+
+    private boolean doAction(int barOption) {
+        System.out.println("\nfunction called");
+        return false;
+    }
 }
        
 
