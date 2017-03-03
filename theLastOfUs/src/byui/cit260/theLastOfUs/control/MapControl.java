@@ -25,7 +25,7 @@ public class MapControl {
                 }
 
     public static void createNewMap(Character1 character) {
-        System.out.println("\n*** createNewMap function called. ***");
+        System.out.println("\n*** Map created and displayed. ***");
     }
 }
 

@@ -12,9 +12,8 @@ import thelastofus.TheLastOfUs;
  *
  * @author iu
  */
-public class Scene5Control {
-    
-  public static Player createPlayer(String playersName) {
+public class DriveControl {
+ public static Player createPlayer(String playersName) {
         if (playersName == null){
             return null;
         }
@@ -23,15 +22,8 @@ public class Scene5Control {
         TheLastOfUs.setPlayer(player); //save the player.
         return player;
                 }
-    public static void createNewScene(Player player) {
-        System.out.println("\n**** New Scene created ****");}
     
-        public double calcRequiredWeight(int itemQuantity, double itemWeight) {
-        
-            int quantity = 10;
-            double weight = 2;
-            double totalWeight = quantity * weight;
-            
-            return totalWeight;
-        }
+    public static void createNewScene(Player player) {
+        System.out.println("\nYou are safe until now " + player.getName() + ", and you are heading to the most dangerous zone of the map.");}
+    
 }

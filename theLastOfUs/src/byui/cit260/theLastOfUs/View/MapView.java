@@ -5,8 +5,11 @@
  */
 package byui.cit260.theLastOfUs.View;
 
+import byui.cit260.theLastOfUs.control.CarControl;
 import byui.cit260.theLastOfUs.control.GameControl;
 import byui.cit260.theLastOfUs.control.Scene4Control;
+import byui.cit260.theLastOfUs.control.Scene5Control;
+import byui.cit260.theLastOfUs.control.Scene6Control;
 import java.util.Scanner;
 import thelastofus.TheLastOfUs;
 
@@ -29,6 +32,8 @@ private String map;
                 + "\n7 |    |   L4|     |     |   L5|     |     |     |     |    |"
                 + "\n8 |    |     |     |     |     |     |     |     |     |  L8|"
                 + "\n  |*********************************************************|"
+                + "\n Each coordinates, like A1, have a length of 60 km and a width of 20 km."
+               + "\n So from L1 to L2, there is a distance of 120 km and from L4 to L5, 180 km."
                 + "\nQ - Quit Map                                               "
                ;
     
@@ -116,13 +121,22 @@ private String map;
     }
 
     private void locationThree() {
-        System.out.println("function called");}
+        Scene5Control.createNewScene(TheLastOfUs.getPlayer());
+    toolsRoomView toolChoice = new toolsRoomView();
+    toolChoice.chooseTool();
+    }
 
     private void locationFour() {
-        System.out.println("function called");}
+        Scene6Control.createNewScene(TheLastOfUs.getPlayer());
+    DrugStoreView drugChoice = new DrugStoreView();
+    drugChoice.chooseDrug();
+    }
 
     private void locationFive() {
-        System.out.println("function called");}
+        CarControl.createNewScene(TheLastOfUs.getPlayer());
+    carView carChoice = new carView();
+    carChoice.chooseCar();
+    }
 
     private void locationSix() {
         System.out.println("function called");}

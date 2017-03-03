@@ -6,6 +6,7 @@
 package byui.cit260.theLastOfUs.View;
 
 import byui.cit260.theLastOfUs.control.MapControl;
+import byui.cit260.theLastOfUs.control.Scene5Control;
 import java.util.Scanner;
 import thelastofus.TheLastOfUs;
 
@@ -15,6 +16,7 @@ import thelastofus.TheLastOfUs;
  */
 class superMarketView {
 private String item;
+    private String prompt;
 
     void doShopping() {
         this.item = "\n|ST GEORGES SUPERMARKET                                 |"
@@ -87,21 +89,173 @@ private String item;
         return false;
     }
 
+    //bread options
     private void breadPick() {
-        System.out.println("\n****breadPick() function called ****");}
+         this.prompt = "\nENTER THE WEIGHT OF BREAD AND MILK NEEDED: ";
+        this.displayBreadOption();
+        }
+
+    private void displayBreadOption() {
+        boolean well = false;
+        do {
+            System.out.println(prompt);
+            int breadOption = this.getBreadOption();
+            well = this.breadAction(breadOption);
+                }
+   while(!well);
+}
+
+    private int getBreadOption() {
+        Scanner input= new Scanner(System.in);//get infile for keyboard
+    int value1 = 0;
+    boolean valid = false; //initialize to not valid
+    
+    while (!valid) { 
+            System.out.println("Enter the weight in lbs here :");
+    
+    value1= input.nextInt();
+    
+    
+    if (value1 >= 1 && value1 <= 10) {
+        System.out.println("\nYou left the supermarket with " + value1+ " lbs of bread-milk conbination.");
+    }
+    else {
+        System.out.println("\nYou cannot take more than ten (10) lbs or less than one.");
+        continue;
+        }
+        break;  
+    }
+    return value1;
+    }
+private boolean breadAction(int breadOption) {
+    if(breadOption >= 1 && breadOption <= 10){
+        this.toolsRoomView();
+    }
+    else {
+        System.out.println("\n***Invalid Selection, Try the correct weight to go forward***");
+    }
+    return false;
+     }
+
+ //Water options
 
     private void waterBottle() {
-        System.out.println("\n****waterBottle() function called ****");}
+         this.prompt = "\nENTER THE WEIGHT OF WATER BOTTLES AND BARS NEEDED: ";
+        this.displayWaterOption();
+        }
 
+    private void displayWaterOption() {
+        boolean well = false;
+        do {
+            System.out.println(prompt);
+            int waterOption = this.getWaterOption();
+            well = this.waterAction(waterOption);
+                }
+   
+    while(!well);
+}
+
+    private int getWaterOption() {
+        Scanner input= new Scanner(System.in);//get infile for keyboard
+    int value1 = 0;
+    boolean valid = false; //initialize to not valid
+    
+    while (!valid) { 
+            System.out.println("Enter the weight in lbs here :");
+    
+    value1= input.nextInt();
+    
+    
+    if (value1 >= 1 && value1 <= 6) {
+        System.out.println("\nYou left the supermarket with " + value1+ " lbs of water-protein bars conbination.");
+    }
+    else {
+        System.out.println("\nYou cannot take more than six (6) lbs or less than one.");
+        continue;
+        }
+        break;  
+    }
+    return value1;
+    }
+private boolean waterAction(int waterOption) {
+    if(waterOption >= 1 && waterOption <= 6){
+        this.toolsRoomView();
+    }
+    else {
+        System.out.println("\n***Invalid Selection, Try the correct weight to go forward***");
+    }
+    return false;
+}
+    
+//apple options
     private void appleSearch() {
-        System.out.println("\n****appleSearch() function called ****");}
+        this.prompt = "\nENTER THE WEIGHT OF APPLE JUICE AND BANANAS NEEDED: ";
+        this.displayAppleOption();
+        }
 
+    private void displayAppleOption() {
+        boolean well = false;
+        do {
+            System.out.println(prompt);
+            int appleOption = this.getAppleOption();
+            well = this.appleAction(appleOption);
+                }
+   
+    while(!well);
+}
+
+    private int getAppleOption() {
+        Scanner input= new Scanner(System.in);//get infile for keyboard
+    int value1 = 0;
+    boolean valid = false; //initialize to not valid
+    
+    while (!valid) { 
+            System.out.println("Enter the weight in lbs here :");
+    
+    value1= input.nextInt();
+    
+    
+    if (value1 >= 1 && value1 <= 8) {
+        System.out.println("\nYou took " + value1+ " lbs of selected conbination. You left the supermarket with"
+                + value1 + "\nof apples and bananas. ");
+    }
+    else {
+        System.out.println("\nYou cannot take more than eight (8) lbs or less than one.");
+        continue;
+        }
+        break;  
+    }
+    return value1;
+    }
+private boolean appleAction(int appleOption) {
+    if(appleOption >= 1 && appleOption <= 8){
+        this.toolsRoomView();
+    }
+    else {
+        System.out.println("\n***Invalid Selection, Try the correct weight to go forward***");
+    }
+    return false;
+}
+
+
+    
+//visit map functions
     private void seeLocations() {
          MapControl.createNewMap(TheLastOfUs.getCharacter1());
     MapView map = new MapView();
     map.watchMap();
     }
 
+    private void toolsRoomView() {
+         Scene5Control.createNewScene(TheLastOfUs.getPlayer());
+    toolsRoomView toolChoice = new toolsRoomView();
+    toolChoice.chooseTool();}
+
+    
+
+    
+
+    
    
 }
   

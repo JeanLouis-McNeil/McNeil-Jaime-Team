@@ -272,9 +272,18 @@ public class FindResourcesView {
     resMenu.findWayOut();}
 
     private boolean doAction(int barOption) {
-        System.out.println("\nfunction called");
-        return false;
+     if(barOption >= 1 && barOption <= 4){
+        this.exitView();
     }
+    else {
+        System.out.println("\n***Invalid Selection, Try the correct number to go forward***");
+    }
+    return false;  }
+
+    private void exitView() {
+        GameControl.createNewGame(TheLastOfUs.getPlayer());
+    LeaveHospitalView resMenu = new LeaveHospitalView();
+    resMenu.findWayOut();}
 }
        
 

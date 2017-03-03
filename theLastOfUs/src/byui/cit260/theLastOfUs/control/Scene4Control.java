@@ -25,7 +25,7 @@ public class Scene4Control {
                 }
     
     public static void createNewScene(Player player) {
-        System.out.println("\n**** createNewScene() function created *****");
+        System.out.println("\n**** New Scene created *****");
                 }
 
    

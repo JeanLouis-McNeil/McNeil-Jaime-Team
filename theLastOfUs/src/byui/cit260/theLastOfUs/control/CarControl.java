@@ -12,9 +12,9 @@ import thelastofus.TheLastOfUs;
  *
  * @author iu
  */
-public class Scene5Control {
-    
-  public static Player createPlayer(String playersName) {
+public class CarControl {
+
+    public static Player createPlayer(String playersName) {
         if (playersName == null){
             return null;
         }
@@ -24,14 +24,8 @@ public class Scene5Control {
         return player;
                 }
     public static void createNewScene(Player player) {
-        System.out.println("\n**** New Scene created ****");}
+        System.out.println("\n**** New Scene created ****"
+                + "\nYou are in the parking lot, " + player.getName());
+    }
     
-        public double calcRequiredWeight(int itemQuantity, double itemWeight) {
-        
-            int quantity = 10;
-            double weight = 2;
-            double totalWeight = quantity * weight;
-            
-            return totalWeight;
-        }
 }
