@@ -9,7 +9,7 @@ import byui.cit260.theLastOfUs.control.CarControl;
 import byui.cit260.theLastOfUs.control.GameControl;
 import byui.cit260.theLastOfUs.control.Scene4Control;
 import byui.cit260.theLastOfUs.control.Scene5Control;
-import byui.cit260.theLastOfUs.control.Scene6Control;
+import byui.cit260.theLastOfUs.control.DrugStoreControl;
 import java.util.Scanner;
 import thelastofus.TheLastOfUs;
 
@@ -127,7 +127,7 @@ private String map;
     }
 
     private void locationFour() {
-        Scene6Control.createNewScene(TheLastOfUs.getPlayer());
+        DrugStoreControl.createNewScene(TheLastOfUs.getPlayer());
     DrugStoreView drugChoice = new DrugStoreView();
     drugChoice.chooseDrug();
     }

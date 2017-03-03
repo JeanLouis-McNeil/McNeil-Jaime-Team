@@ -5,7 +5,7 @@
  */
 package byui.cit260.theLastOfUs.View;
 
-import byui.cit260.theLastOfUs.control.Scene6Control;
+import byui.cit260.theLastOfUs.control.DrugStoreControl;
 import java.util.Scanner;
 import thelastofus.TheLastOfUs;
 
@@ -162,7 +162,7 @@ Scanner input =  new Scanner(System.in);//get infile for keyboard
     }
 
     private void drugstoreView() {
-        Scene6Control.createNewScene(TheLastOfUs.getPlayer());
+        DrugStoreControl.createNewScene(TheLastOfUs.getPlayer());
     DrugStoreView drugChoice = new DrugStoreView();
     drugChoice.chooseDrug();}
 
