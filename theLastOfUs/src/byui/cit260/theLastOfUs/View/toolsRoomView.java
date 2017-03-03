@@ -39,6 +39,8 @@ private String option;
         do {
             System.out.println(tool);
             String toolOption = this.getToolOption();
+            if (toolOption.toUpperCase().equals("Q"))
+                   return;
             well = this.toolAction(toolOption);
                 }
    
