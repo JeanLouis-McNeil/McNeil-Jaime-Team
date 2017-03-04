@@ -13,12 +13,13 @@ import thelastofus.TheLastOfUs;
  *
  * @author iu
  */
-public class MainMenuView {
-    private String menu;
+public class MainMenuView extends View {
+    
 
-    public MainMenuView(){
-        this.menu = "\n"
-                + "\n----------------------------------------------------------"
+                  
+
+    public MainMenuView() {
+                    super("\n----------------------------------------------------------"
                 + "\n |Main Menu                                              |"
                 + "\n----------------------------------------------------------"
                 + "\nN - Start New Game"
@@ -26,26 +27,20 @@ public class MainMenuView {
                 + "\nH - Get help on how to play the game"
                 + "\nS - Save Game"
                 + "\nQ - Quit"
-                + "\n----------------------------------------------------------"
+                + "\n----------------------------------------------------------")
                 ;
-        this.displayMainMenuView();
-    }
-     public void displayMainMenuView() {
-        boolean done = false;
-        do {
-               System.out.println(menu);
-               String menuOption = this.getMenuOption();
-               if (menuOption.toUpperCase().equals("Q"))
-                   return;
-               done = this.doAction(menuOption);
-        } while(!done);
-        }
 
-    public boolean doAction(String menuOption) {
+    }
+         
+    
+   
+
+    @Override
+    public boolean doAction(String value) {
         
-        menuOption = menuOption.toUpperCase();// convert menuOption to upper case.
+        value = value.toUpperCase();// convert menuOption to upper case.
         
-        switch (menuOption) {
+        switch (value) {
             case "N":
                     this.startNewGame();
                     break;
@@ -68,25 +63,8 @@ public class MainMenuView {
         
         
             }
-    private String getMenuOption() {
-        Scanner keyboard =  new Scanner(System.in);//get infile for keyboard
-    String value = ""; //value to be returned
-    boolean valid = false; //initialize to not valid
+   
     
-    while (!valid) { 
-            System.out.println("Choose a menu option!");
-    
-    value = keyboard.nextLine();
-    value = value.trim();
-    
-    if (value.isEmpty()) {
-        System.out.println("\n Invalind value : Value cannot be more than one character.");
-        continue;
-        }
-        break;  
-    }
-    return value;
-    }
 
     private void startNewGame() {
        GameControl.createNewGame(TheLastOfUs.getPlayer());
@@ -98,33 +76,16 @@ public class MainMenuView {
         System.out.println("\nstartExistingGame function called.");}
 
     private void displayHelpMenu() {
-        this.menu = "\n"
-                + "\n----------------------------------------------------------"
-                + "\n |Help Menu                                              |"
-                + "\n----------------------------------------------------------"
-                + "\nG - What is the goal of the game"
-                + "\nM - How to move?"
-                + "\nQ - Quit"
-                + "\n----------------------------------------------------------"
-                ;
-        this.displayHelpMenuView();
-    }
-     public void displayHelpMenuView() {
-        boolean done = false;
-        do {
-               System.out.println(menu);
-               String menuOption = this.getMenuOption();
-               if (menuOption.toUpperCase().equals("Q"))
-                   return;
-               done = this.doAction(menuOption);
-        } while(!done);
         
-        
-    }
-
-    private void saveGame() {
-        System.out.println("\nsaveGame function called.");}
     }
     
+ private void saveGame() {
+        System.out.println("\nsaveGame function called.");
+}
+
+
+
+
+}
 
 
