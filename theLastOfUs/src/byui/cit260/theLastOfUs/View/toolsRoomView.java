@@ -6,6 +6,7 @@
 package byui.cit260.theLastOfUs.View;
 
 import byui.cit260.theLastOfUs.control.DrugStoreControl;
+import byui.cit260.theLastOfUs.control.ShovelControl;
 import java.util.Scanner;
 import thelastofus.TheLastOfUs;
 
@@ -13,12 +14,12 @@ import thelastofus.TheLastOfUs;
  *
  * @author iu
  */
-class toolsRoomView {
+class toolsRoomView extends View{
 
 private String tool;
-private String option;
-    void chooseTool() {
-        this.tool = "\n|THE TOOLS ROOM                                          |"
+
+    public toolsRoomView() {
+           super("\n|THE TOOLS ROOM                                          |"
                 + "\nYou left the supermarket with "
                 + "\nYou are now in the tools room and your objective is to find"
                 + "\nthe right weight of useful tools.                          "
@@ -28,48 +29,15 @@ private String option;
                 + "\nK - Knifes (1 lb)                                          "
                 + "\nG - Gun (8 lbs)                                            "
                 + "\nA - Ammunition (15lbs)                                     "
-                + "\nQ - Quit"
+                + "\nQ - Quit")
                 ;
-        this.displayTools();
-        
         }
 
-    private void displayTools() {
-         boolean well = false;
-        do {
-            System.out.println(tool);
-            String toolOption = this.getToolOption();
-            if (toolOption.toUpperCase().equals("Q"))
-                   return;
-            well = this.toolAction(toolOption);
-                }
-   
-    while(!well);}
-
-    private String getToolOption() {
-Scanner input =  new Scanner(System.in);//get infile for keyboard
-    String value = ""; //value to be returned
-    boolean valid = false; //initialize to not valid
+        @Override
+    public boolean doAction(String value) {
+    value = value.toUpperCase();
     
-    while (!valid) { 
-            System.out.println("Enter the letter describing the tools wanted. ");
-    
-    value = input.nextLine();
-    value = value.trim();
-    
-    if (value.isEmpty()) {
-        System.out.println("\n Invalind value : Value cannot be more than one character.");
-        continue;
-        }
-        break;  
-    }
-    return value;
-    }
-
-    private boolean toolAction(String toolOption) {
-        toolOption = toolOption.toUpperCase();// convert menuOption to upper case.
-        
-        switch (toolOption) {
+        switch (value) {
 
             case "S":
                     this.shovelPick();
@@ -93,54 +61,11 @@ Scanner input =  new Scanner(System.in);//get infile for keyboard
     }
 //Shovel option
     private void shovelPick() {
-        this.option = "\nEnter the number of shovel wanted to see the total weight: ";
-        this.displayShovel();
-    }
- private void displayShovel() {
-      boolean well = false;
-        do {
-            System.out.println(option);
-            int shovelOption = this.getShovelOption();
-            well = this.shovelAction(shovelOption);
-                }
-   while(!well);
-        }
-   private int getShovelOption() {
-        Scanner input= new Scanner(System.in);//get infile for keyboard
-    int value1 = 0;
-    boolean valid = false; //initialize to not valid
+    ShovelControl.createNewScene(TheLastOfUs.getPlayer());
+    ShovelView shovel = new ShovelView();
+    shovel.shovels();
     
-    while (!valid) { 
-            System.out.println("Enter the quantity here :");
-    
-    value1= input.nextInt();
-            int weight = 10;
-    
-    if (value1 >= 1 && value1 <= 2) {
-                int totWeight = value1 * weight; 
-        System.out.println("\nYou chose " + value1+ " shovel(s). The weight of the chosen tools is"
-                + totWeight + "lbs");
-    }
-    else {
-        System.out.println("\nYou cannot take more than 2 (2) shovels or less than one.");
-        continue;
-        }
-        break;  
-    }
-    return value1;}
-
-    private boolean shovelAction(int shovelOption) {
-        if(shovelOption >= 1 && shovelOption <= 2){
-        this.drugstoreView();
-    }
-    else {
-        System.out.println("\n***Invalid Selection, Try the correct number to go forward***");
-    }
-    return false;}
- 
- 
-    
-    
+    }   
 //Drill option
     private void drillChoice() {
         System.out.println("\n drill chosen");
@@ -161,10 +86,9 @@ Scanner input =  new Scanner(System.in);//get infile for keyboard
         System.out.println("\n ammunition chosen");
     }
 
-    private void drugstoreView() {
-        DrugStoreControl.createNewScene(TheLastOfUs.getPlayer());
-    DrugStoreView drugChoice = new DrugStoreView();
-    drugChoice.chooseDrug();}
+   
+
+
 
   
 

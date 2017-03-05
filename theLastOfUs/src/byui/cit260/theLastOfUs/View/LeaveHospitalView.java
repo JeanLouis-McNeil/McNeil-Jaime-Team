@@ -5,6 +5,8 @@
  */
 package byui.cit260.theLastOfUs.View;
 
+import byui.cit260.theLastOfUs.control.ClimbWindowControl;
+import byui.cit260.theLastOfUs.control.ForceDoorControl;
 import byui.cit260.theLastOfUs.control.MapControl;
 import byui.cit260.theLastOfUs.control.Scene4Control;
 import java.util.Scanner;
@@ -78,84 +80,20 @@ class LeaveHospitalView {
     }
 
     private void forceDoor() {
-        this.menu = "\n|YOU ARE OUTSIDE... What is your first action?          "
-                + "\nM - View map                                              "
-                + "\nB - Begin your trip                                       "
-                + "\nQ - Quit                                                  "
-                ;
-    this.displayExit();
+      ForceDoorControl.createNewScene(TheLastOfUs.getPlayer());
+      ForceDoorView force = new ForceDoorView();
+      force.display();
     }
 
     private void climbWindow() {
-        this.menu = "\n|YOU ARE OUTSIDE... What is your first action?          "
-                + "\nM - View map                                              "
-                + "\nB - Begin your trip                                       "
-                + "\nQ - Quit                                                  "
-                ;
-    this.displayExit();}
-
-    private void displayExit() {
-        boolean done = false;
-        do {
-               System.out.println(menu);
-               String outOption = this.getOutOption();
-               if (outOption.toUpperCase().equals("Q"))
-                   return;
-               done = this.outAction(outOption);
-        } while(!done);
+      ClimbWindowControl.createNewScene(TheLastOfUs.getPlayer());
+      ClimbWindowView climb = new ClimbWindowView();
+      climb.display();
     }
 
-    private String getOutOption() {
-        Scanner input =  new Scanner(System.in);//get infile for keyboard
-    String value = ""; //value to be returned
-    boolean valid = false; //initialize to not valid
-    
-    while (!valid) { 
-            System.out.println("Enter your choice. ");
-    
-    value = input.nextLine();
-    value = value.trim();
-    
-    if (value.isEmpty()) {
-        System.out.println("\n Invalind value : Value cannot be more than one character.");
-        continue;
-        }
-        break;  
-    }
-    return value;
-    }
+   
 
-    private boolean outAction(String outOption) {
-        outOption = outOption.toUpperCase();// convert menuOption to upper case.
-        
-        switch (outOption) {
 
-            case "M":
-                    this.seeMap();
-                    break;
-            case "B":
-                    this.beginTrip();
-                    break;
-            default :
-                System.out.println("\n***Invalid Selection, Try Again!***");
-                break;
-        }
-        return false;
-    }
-
-    private void seeMap() {
-
-        MapControl.createNewMap(TheLastOfUs.getCharacter1());
-    MapView map = new MapView();
-    map.watchMap();
-    }
-
-    private void beginTrip() {
-
-        Scene4Control.createNewScene(TheLastOfUs.getPlayer());
-    superMarketView shopping = new superMarketView();
-    shopping.doShopping();
-    }
 
 }
  

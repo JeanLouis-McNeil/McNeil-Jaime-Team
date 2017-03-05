@@ -112,24 +112,24 @@ private String map;
     private void locationOne() {
         GameControl.createNewGame(TheLastOfUs.getPlayer());
     FindResourcesView resMenu = new FindResourcesView();
-    resMenu.FindResources();
+    resMenu.display();
     }
     private void locationTwo() {
         Scene4Control.createNewScene(TheLastOfUs.getPlayer());
     superMarketView shopping = new superMarketView();
-    shopping.doShopping();
+    shopping.display();
     }
 
     private void locationThree() {
         Scene5Control.createNewScene(TheLastOfUs.getPlayer());
     toolsRoomView toolChoice = new toolsRoomView();
-    toolChoice.chooseTool();
+    toolChoice.display();
     }
 
     private void locationFour() {
         DrugStoreControl.createNewScene(TheLastOfUs.getPlayer());
     DrugStoreView drugChoice = new DrugStoreView();
-    drugChoice.chooseDrug();
+    drugChoice.display();
     }
 
     private void locationFive() {

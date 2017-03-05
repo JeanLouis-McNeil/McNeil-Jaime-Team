@@ -13,38 +13,24 @@ import thelastofus.TheLastOfUs;
  *
  * @author iu
  */
-class DrugStoreView {
-private String drug;
+class DrugStoreView extends View {
 
-    void chooseDrug() {
-        this.drug = "\n Choose the drugs and medics needed for the trip"
+
+    public DrugStoreView() {
+        super("\n Choose the drugs and medics needed for the trip"
                 + "\nEach items are in a 15 lbs pack."
                 + "\nF - First Aid tools                               "
                 + "\nA - Antibiotics                                   "
                 + "\nV - Antivenomous (for snakes bites)               "
                 + "\nP - Antiparalysis                                 "
-                + "\nQ - Quit                                          "
+                + "\nQ - Quit                                          ")
                 ;
-        this.displayDrug();
     }
-
-    private void displayDrug() {
-        boolean well = false;
-        do {
-            System.out.println(drug);
-            String drugOption = this.getDrugOption();
-            if (drugOption.toUpperCase().equals("Q"))
-                   return;
-            well = this.drugAction(drugOption);
-                }
-   
-    while(!well);
-}
-
-    private boolean drugAction(String drugOption) {
-      drugOption = drugOption.toUpperCase();// convert menuOption to upper case.
+@Override
+    public boolean doAction(String value) {
+        value = value.toUpperCase();// convert menuOption to upper case.
         
-        switch (drugOption) {
+        switch (value) {
 
             case "F":
                 this.exitDrugstore();    
@@ -63,34 +49,15 @@ private String drug;
                 System.out.println("\n***Invalid Selection, Try Again!***");
                 break;
         }
-        return false; 
-    }
-
-    private String getDrugOption() {
-        Scanner input =  new Scanner(System.in);//get infile for keyboard
-    String value = ""; //value to be returned
-    boolean valid = false; //initialize to not valid
+        return false; }
     
-    while (!valid) { 
-            System.out.println("Enter your choice. ");
-    
-    value = input.nextLine();
-    value = value.trim();
-    
-    if (value.isEmpty()) {
-        System.out.println("\n Invalind value : Value cannot be more than one character.");
-        continue;
-        }
-        break;  
-    }
-    return value;
-    }
-
     private void exitDrugstore() {
         CarControl.createNewScene(TheLastOfUs.getPlayer());
     carView carChoice = new carView();
     carChoice.chooseCar();
     }
+
+    
 }
     
 
