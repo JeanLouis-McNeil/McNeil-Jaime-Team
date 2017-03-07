@@ -222,6 +222,6 @@ private String car;
     private void drivingView() {
         DriveControl.createNewScene(TheLastOfUs.getPlayer());
     carDriveView drive = new carDriveView();
-    drive.driveCar();
+    drive.display();
     }
     }
