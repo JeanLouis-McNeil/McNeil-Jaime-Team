@@ -6,6 +6,8 @@
 package thelastofus;
 
 import byui.cit260.theLastOfUs.View.StartProgramView;
+import byui.cit260.theLastOfUs.model.Car;
+import byui.cit260.theLastOfUs.model.CarPartsInventory;
 import byui.cit260.theLastOfUs.model.Character1;
 import byui.cit260.theLastOfUs.model.Game;
 import byui.cit260.theLastOfUs.model.Location;
@@ -64,22 +66,13 @@ public class TheLastOfUs {
     String gameInfo = gameMap.toString();
         System.out.println(gameInfo);
         
-    
-    Character1 mainCharacter = new Character1();
-        mainCharacter.setName("The Leader");
-        mainCharacter.setDescription("The character the player leads through the game.");
-        mainCharacter.setCoordinatesX(1);
-        mainCharacter.setCoordinatesY(1);
         
-    String characterInfo = mainCharacter.toString();
-        System.out.println(characterInfo);    
         
     Location firstLocation = new Location();
         firstLocation.setRow(1);
         firstLocation.setColumn(1);
         firstLocation.setName("The Hospital");
         firstLocation.setVisited(true);
-        firstLocation.setAmountRemaining(10);
     String locationInfo = firstLocation.toString();
         System.out.println(locationInfo);    
     
@@ -131,6 +124,27 @@ public class TheLastOfUs {
         carRental.setDisplaySymbol(true);
     String scene6Info = carRental.toString();
         System.out.println(scene6Info);
+        
+    Car carSpecs = new Car();
+        carSpecs.setBattery(1);
+        carSpecs.setDescription("A car you will use to carry the required things for the cure");
+        carSpecs.setDisplacement(5);
+        carSpecs.setHeadLamps(2);
+        carSpecs.setNoAxle(3);
+        carSpecs.setNoCyl(8);
+        carSpecs.setWeight(2500);
+        carSpecs.setNoWheel(6);
+        carSpecs.setTorque(530);
+    String CarInfo = carSpecs.toString();
+        System.out.println(CarInfo);
+        
+    CarPartsInventory parts = new CarPartsInventory();
+        parts.setPartType("name");
+        parts.setPartQuantity(100);
+        parts.setRequiredAmount(75);
+    String partInfo = parts.toString();
+        System.out.println(partInfo);
+        
         
         //Create a StartProgramView display.
         StartProgramView startProgramView = new StartProgramView();

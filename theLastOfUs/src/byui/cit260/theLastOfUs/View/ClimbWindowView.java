@@ -26,7 +26,7 @@ public class ClimbWindowView extends View {
 
     private void seeMap() {
 
-        MapControl.createNewMap(TheLastOfUs.getCharacter1());
+        MapControl.createNewMap();
     MapView map = new MapView();
     map.watchMap();
     }

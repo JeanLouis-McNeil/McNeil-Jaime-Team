@@ -14,7 +14,10 @@ import java.io.Serializable;
 public class Game implements Serializable{
     private double totalTime;
     private int noPeople;
-
+    private Car car;
+    private CarPartsInventory partInventory;
+    private Map map;
+    
     public Game() {
     }
     
@@ -36,6 +39,30 @@ public class Game implements Serializable{
         this.noPeople = noPeople;
     }
 
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public CarPartsInventory getPartInventory() {
+        return partInventory;
+    }
+
+    public void setPartInventory(CarPartsInventory partInventory) {
+        this.partInventory = partInventory;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -68,6 +95,10 @@ public class Game implements Serializable{
     @Override
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + ", noPeople=" + noPeople + '}';
+    }
+
+    public void setPartInventory(CarPartsInventory[] partsInventory) {
+        System.out.print("\n*** Inventory list created! ***");
     }
     
     

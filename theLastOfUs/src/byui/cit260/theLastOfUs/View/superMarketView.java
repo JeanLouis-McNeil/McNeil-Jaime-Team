@@ -83,7 +83,7 @@ super("\n|ST GEORGES SUPERMARKET                                 |"
     
 //visit map functions
     private void seeLocations() {
-         MapControl.createNewMap(TheLastOfUs.getCharacter1());
+         MapControl.createNewMap();
     MapView map = new MapView();
     map.watchMap();
     }

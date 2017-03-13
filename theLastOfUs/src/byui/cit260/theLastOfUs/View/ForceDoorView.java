@@ -40,7 +40,7 @@ public class ForceDoorView extends View {
         return false;}
     private void seeMap() {
 
-        MapControl.createNewMap(TheLastOfUs.getCharacter1());
+        MapControl.createNewMap();
     MapView map = new MapView();
     map.watchMap();
     }

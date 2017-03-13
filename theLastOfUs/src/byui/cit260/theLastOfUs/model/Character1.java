@@ -5,6 +5,7 @@
  */
 package byui.cit260.theLastOfUs.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,90 +13,29 @@ import java.util.Objects;
  *
  * @author iu
  */
-public class Character1 implements Serializable{
-    private String name;
-    private String description;
-    private int coordinatesX;
-    private int coordinatesY;
+public enum Character1 implements Serializable{
 
-    public Character1() {
-    }
+    Jeanot("The main character of the story, the same you are controling."),
+    John("The one that holds the main antivirus for a general cure."),
+    Dead("The dead ones, or the ones that are bited and transformed.");
     
-    
+    private final String description;
+    private final Point coordinates;
 
-    public String getName() {
-        return name;
-    }
+ 
 
-    public void setName(String name) {
-        this.name = name;
+    Character1(String description){
+        this.description = description;
+        coordinates = new Point(1, 1);
     }
+ 
+
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Point getCoordinates() {
+        return coordinates;
     }
-
-    public int getCoordinatesX() {
-        return coordinatesX;
-    }
-
-    public void setCoordinatesX(int coordinatesX) {
-        this.coordinatesX = coordinatesX;
-    }
-
-    public int getCoordinatesY() {
-        return coordinatesY;
-    }
-
-    public void setCoordinatesY(int coordinatesY) {
-        this.coordinatesY = coordinatesY;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 13 * hash + Objects.hashCode(this.name);
-        hash = 13 * hash + Objects.hashCode(this.description);
-        hash = 13 * hash + this.coordinatesX;
-        hash = 13 * hash + this.coordinatesY;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Character1 other = (Character1) obj;
-        if (this.coordinatesX != other.coordinatesX) {
-            return false;
-        }
-        if (this.coordinatesY != other.coordinatesY) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Character1{" + "name=" + name + ", description=" + description + ", coordinatesX=" + coordinatesX + ", coordinatesY=" + coordinatesY + '}';
-    }
-    
-    
 }

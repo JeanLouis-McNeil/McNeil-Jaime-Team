@@ -5,28 +5,41 @@
  */
 package byui.cit260.theLastOfUs.control;
 
-import byui.cit260.theLastOfUs.model.Character1;
-import byui.cit260.theLastOfUs.model.Player;
-import thelastofus.TheLastOfUs;
+import byui.cit260.theLastOfUs.model.Map;
+import byui.cit260.theLastOfUs.model.Scene;
 
 /**
  *
  * @author iu
  */
 public class MapControl {
- public static Character1 createCharacter(String characterName) {
-        if (characterName == null){
-            return null;
-        }
-        Character1 character = new Character1();
-        character.setName(characterName);
-        TheLastOfUs.setCharacter1(character); //save the player.
-        return character;
-                }
 
-    public static void createNewMap(Character1 character) {
-        System.out.println("\n*** Map created and displayed. ***");
+    public static Map createNewMap() {
+        Map map = new Map(10,8);
+        Scene scenes = createScenes();
+        GameControl.assignScenesToLocations(map, scenes);
+    return map;
     }
+
+    static void moveActorToStartingLocation(Map map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public enum SceneType{
+    start,
+    resources,
+    exit,
+    window,
+    door,
+    supermarket,
+    toolsroom,
+    drugstore,
+    carchoice;
+    
+    }
+    private static Scene createScenes() {
+        Scene scenes = new Scene[SceneType.values().length];
+        return scenes;
+        }
 }
 
 

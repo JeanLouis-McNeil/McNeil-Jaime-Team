@@ -6,6 +6,7 @@
 package byui.cit260.theLastOfUs.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -13,24 +14,20 @@ import java.util.Objects;
  * @author iu
  */
 public class Location implements Serializable{
-    private String name;
+
     private int row;
     private int column;
     private boolean visited;
-    private double amountRemaining;
+    private Scene scene;
+    private ArrayList<Character1> characters;
+
 
     public Location() {
     }
     
     
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public int getRow() {
         return row;
@@ -56,22 +53,14 @@ public class Location implements Serializable{
         this.visited = visited;
     }
 
-    public double getAmountRemaining() {
-        return amountRemaining;
-    }
-
-    public void setAmountRemaining(double amountRemaining) {
-        this.amountRemaining = amountRemaining;
-    }
+  
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.name);
         hash = 89 * hash + this.row;
         hash = 89 * hash + this.column;
         hash = 89 * hash + (this.visited ? 1 : 0);
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.amountRemaining) ^ (Double.doubleToLongBits(this.amountRemaining) >>> 32));
         return hash;
     }
 
@@ -96,18 +85,13 @@ public class Location implements Serializable{
         if (this.visited != other.visited) {
             return false;
         }
-        if (Double.doubleToLongBits(this.amountRemaining) != Double.doubleToLongBits(other.amountRemaining)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
+
         return true;
     }
 
     @Override
     public String toString() {
-        return "Location{" + "name=" + name + ", row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
+        return "Location{" + ", row=" + row + ", column=" + column + ", visited=" + visited + '}';
     }
 
    
