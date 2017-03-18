@@ -50,15 +50,15 @@ public class GameControl {
     static void assignScenesToLocations(Map map, Scene[] scenes) {
             Location[][] locations = map.getLocations();
             
-            locations[][0].setScene(scenes[SceneType.start.ordinal()]);
-            locations[][1].setScene(scenes[SceneType.resources.ordinal()]);
-            locations[][2].setScene(scenes[SceneType.exit.ordinal()]);
-            locations[][3].setScene(scenes[SceneType.window.ordinal()]);
-            locations[][4].setScene(scenes[SceneType.door.ordinal()]);
-            locations[][5].setScene(scenes[SceneType.supermarket.ordinal()]);
-            locations[][6].setScene(scenes[SceneType.toolsroom.ordinal()]);
-            locations[][7].setScene(scenes[SceneType.drugstore.ordinal()]);
-            locations[][8].setScene(scenes[SceneType.carchoice.ordinal()]);
+            locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
+            locations[0][1].setScene(scenes[SceneType.resources.ordinal()]);
+            locations[0][2].setScene(scenes[SceneType.exit.ordinal()]);
+            locations[0][3].setScene(scenes[SceneType.window.ordinal()]);
+            locations[0][4].setScene(scenes[SceneType.door.ordinal()]);
+            locations[0][5].setScene(scenes[SceneType.supermarket.ordinal()]);
+            locations[0][6].setScene(scenes[SceneType.toolsroom.ordinal()]);
+            locations[0][7].setScene(scenes[SceneType.drugstore.ordinal()]);
+            locations[0][8].setScene(scenes[SceneType.carchoice.ordinal()]);
     }
     
     public enum Item {
