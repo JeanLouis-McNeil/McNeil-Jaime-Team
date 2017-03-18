@@ -15,7 +15,7 @@ public class Game implements Serializable{
     private double totalTime;
     private int noPeople;
     private Car car;
-    private CarPartsInventory partInventory;
+    private CarPartsInventory[] partInventory;
     private Map map;
     
     public Game() {
@@ -47,11 +47,11 @@ public class Game implements Serializable{
         this.car = car;
     }
 
-    public CarPartsInventory getPartInventory() {
+    public CarPartsInventory[] getPartInventory() {
         return partInventory;
     }
 
-    public void setPartInventory(CarPartsInventory partInventory) {
+    public void setPartInventory(CarPartsInventory[] partInventory) {
         this.partInventory = partInventory;
     }
 
@@ -97,9 +97,6 @@ public class Game implements Serializable{
         return "Game{" + "totalTime=" + totalTime + ", noPeople=" + noPeople + '}';
     }
 
-    public void setPartInventory(CarPartsInventory[] partsInventory) {
-        System.out.print("\n*** Inventory list created! ***");
-    }
     
     
 }

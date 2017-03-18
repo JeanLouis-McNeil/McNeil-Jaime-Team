@@ -68,8 +68,8 @@ public class MainMenuView extends View {
 
     private void startNewGame() {
        GameControl.createNewGame(TheLastOfUs.getPlayer());
-    FindResourcesView resMenu = new FindResourcesView();
-    resMenu.display();
+    GameMenuView gameMenu = new GameMenuView();
+    gameMenu.display();
     }
 
     private void startExistingGame() {

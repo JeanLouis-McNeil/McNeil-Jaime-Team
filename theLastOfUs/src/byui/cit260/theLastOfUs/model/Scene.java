@@ -16,7 +16,7 @@ public class Scene implements Serializable{
     private String name;
     private String description;
     private Boolean blockedLocation;
-    private Boolean displaySymbol;
+    private String displaySymbol;
 
     public Scene() {
     }
@@ -47,11 +47,11 @@ public class Scene implements Serializable{
         this.blockedLocation = blockedLocation;
     }
 
-    public Boolean getDisplaySymbol() {
+    public String getDisplaySymbol() {
         return displaySymbol;
     }
 
-    public void setDisplaySymbol(Boolean displaySymbol) {
+    public void setDisplaySymbol(String displaySymbol) {
         this.displaySymbol = displaySymbol;
     }
 

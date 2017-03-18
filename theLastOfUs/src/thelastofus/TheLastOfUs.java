@@ -71,7 +71,6 @@ public class TheLastOfUs {
     Location firstLocation = new Location();
         firstLocation.setRow(1);
         firstLocation.setColumn(1);
-        firstLocation.setName("The Hospital");
         firstLocation.setVisited(true);
     String locationInfo = firstLocation.toString();
         System.out.println(locationInfo);    
