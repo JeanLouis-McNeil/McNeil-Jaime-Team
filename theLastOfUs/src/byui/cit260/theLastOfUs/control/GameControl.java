@@ -5,9 +5,11 @@
  */
 package byui.cit260.theLastOfUs.control;
 
+import byui.cit260.theLastOfUs.control.MapControl.SceneType;
 import byui.cit260.theLastOfUs.model.Car;
 import byui.cit260.theLastOfUs.model.CarPartsInventory;
 import byui.cit260.theLastOfUs.model.Game;
+import byui.cit260.theLastOfUs.model.Location;
 import byui.cit260.theLastOfUs.model.Map;
 import byui.cit260.theLastOfUs.model.Player;
 import byui.cit260.theLastOfUs.model.Scene;
@@ -46,7 +48,17 @@ public class GameControl {
     MapControl.moveActorToStartingLocation(map);
     }
     static void assignScenesToLocations(Map map, Scene[] scenes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            Location[][] locations = map.getLocations();
+            
+            locations[][0].setScene(scenes[SceneType.start.ordinal()]);
+            locations[][1].setScene(scenes[SceneType.resources.ordinal()]);
+            locations[][2].setScene(scenes[SceneType.exit.ordinal()]);
+            locations[][3].setScene(scenes[SceneType.window.ordinal()]);
+            locations[][4].setScene(scenes[SceneType.door.ordinal()]);
+            locations[][5].setScene(scenes[SceneType.supermarket.ordinal()]);
+            locations[][6].setScene(scenes[SceneType.toolsroom.ordinal()]);
+            locations[][7].setScene(scenes[SceneType.drugstore.ordinal()]);
+            locations[][8].setScene(scenes[SceneType.carchoice.ordinal()]);
     }
     
     public enum Item {
