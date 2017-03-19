@@ -16,19 +16,10 @@ import thelastofus.TheLastOfUs;
 public class ClimbWindowView extends View {
     
         public ClimbWindowView() {
-        super("\n|YOU ARE OUTSIDE... What is your first action?          "
-                + "\nM - View map                                              "
+        super("\n|YOU ARE OUTSIDE... What is your first action?                                             "
                 + "\nB - Begin your trip                                       "
                 + "\nQ - Quit                                                  ")
                 ;
-    }
-
-
-    private void seeMap() {
-
-        MapControl.createNewMap();
-    MapView map = new MapView();
-    map.watchMap();
     }
 
     private void beginTrip() {
@@ -44,9 +35,7 @@ public class ClimbWindowView extends View {
         
         switch (value) {
 
-            case "M":
-                    this.seeMap();
-                    break;
+
             case "B":
                     this.beginTrip();
                     break;

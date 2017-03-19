@@ -39,6 +39,9 @@ public class GameControl {
     CarPartsInventory[] partsInventory = GameControl.createPartsList();
     game.setPartInventory(partsInventory);
     
+    CarTool[] toolInventory = GameControl.createToolList();
+    game.setToolInventory(toolInventory);
+    
     Car car = new Car();
     game.setCar(car);
     
@@ -58,8 +61,10 @@ public class GameControl {
             locations[0][5].setScene(scenes[SceneType.supermarket.ordinal()]);
             locations[0][6].setScene(scenes[SceneType.toolsroom.ordinal()]);
             locations[0][7].setScene(scenes[SceneType.drugstore.ordinal()]);
-            locations[0][8].setScene(scenes[SceneType.carchoice.ordinal()]);
+            locations[8][8].setScene(scenes[SceneType.carchoice.ordinal()]);
     }
+
+
     
     public enum Item {
     wheel,
@@ -117,5 +122,43 @@ public class GameControl {
         partsInventory[Item.transFl.ordinal()] = transFl;
         
     return partsInventory;
+    }
+    
+    public enum Tool {
+    wrench,
+    screwdriver,
+    jack,
+    socket,
+    
+    
+    }
+    public static CarTool[] createToolList(){
+    CarTool[] toolIventory = new CarTool[4];
+    
+     CarTool wrench = new CarTool();
+        wrench.setToolName("set of wrenches");
+        wrench.setToolQuantity(10);
+        wrench.setUnitPrice(5);
+        toolInventory[Tool.wrench.ordinal()] = wrench;
+        
+        CarTool screwdriver = new CarTool();
+        screwdriver.setToolName("set of screwdrivers");
+        screwdriver.setToolQuantity(10);
+        screwdriver.setUnitPrice(5);
+        toolInventory[Tool.screwdriver.ordinal()] = screwdriver;
+        
+        CarTool jack = new CarTool();
+        jack.setToolName("hydraulic jack found in a an abandoned truck");
+        jack.setToolQuantity(10);
+        jack.setUnitPrice(5);
+        toolInventory[Tool.jack.ordinal()] = jack;
+        
+        CarTool socket = new CarTool();
+        socket.setToolName("set of sockets");
+        socket.setToolQuantity(10);
+        socket.setUnitPrice(5);
+        toolInventory[Tool.socket.ordinal()] = socket;
+        
+        return toolIventory;
     }
 }

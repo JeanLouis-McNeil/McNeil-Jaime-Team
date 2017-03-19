@@ -79,7 +79,7 @@ public class TheLastOfUs {
         hospitalScene1.setName("The letter");
         hospitalScene1.setDescription("The word John left for the main character is found.");
         hospitalScene1.setBlockedLocation(true);
-        hospitalScene1.setDisplaySymbol(true);
+        hospitalScene1.setDisplaySymbol("H");
     String sceneInfo = hospitalScene1.toString();
         System.out.println(sceneInfo);
     
@@ -147,7 +147,7 @@ public class TheLastOfUs {
         
         //Create a StartProgramView display.
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+        startProgramView.display();
         
         
     

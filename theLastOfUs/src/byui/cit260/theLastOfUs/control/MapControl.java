@@ -14,7 +14,7 @@ import byui.cit260.theLastOfUs.model.Scene;
  */
 public class MapControl {
 
-    public static Map createNewMap() {
+    static Map createNewMap() {
         Map map = new Map(10,8);
         Scene[] scenes = createScenes();
         GameControl.assignScenesToLocations(map, scenes);
@@ -22,7 +22,7 @@ public class MapControl {
     }
 
     static void moveActorToStartingLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n Function called");
     }
     public enum SceneType{
     start,

@@ -76,7 +76,7 @@ public class MainMenuView extends View {
         System.out.println("\nstartExistingGame function called.");}
 
     private void displayHelpMenu() {
-        
+        System.out.println("\n Function called");
     }
     
  private void saveGame() {

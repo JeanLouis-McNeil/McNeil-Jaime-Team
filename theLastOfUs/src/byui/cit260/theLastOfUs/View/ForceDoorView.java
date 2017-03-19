@@ -15,8 +15,7 @@ import thelastofus.TheLastOfUs;
  */
 public class ForceDoorView extends View {
      public ForceDoorView() {
-        super("\n|YOU ARE OUTSIDE... What is your first action?          "
-                + "\nM - View map                                              "
+        super("\n|YOU ARE OUTSIDE... What is your first action?                                             "
                 + "\nB - Begin your trip                                       "
                 + "\nQ - Quit                                                  ")
                 ;
@@ -27,9 +26,7 @@ public class ForceDoorView extends View {
         
         switch (value) {
 
-            case "M":
-                    this.seeMap();
-                    break;
+
             case "B":
                     this.beginTrip();
                     break;
@@ -38,12 +35,7 @@ public class ForceDoorView extends View {
                 break;
         }
         return false;}
-    private void seeMap() {
 
-        MapControl.createNewMap();
-    MapView map = new MapView();
-    map.watchMap();
-    }
 
     private void beginTrip() {
 

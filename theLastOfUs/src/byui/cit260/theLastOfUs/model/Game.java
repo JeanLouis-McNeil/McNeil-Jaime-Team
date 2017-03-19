@@ -16,6 +16,7 @@ public class Game implements Serializable{
     private int noPeople;
     private Car car;
     private CarPartsInventory[] partInventory;
+    private CarTool[] toolInventory;
     private Map map;
     
     public Game() {
@@ -62,6 +63,18 @@ public class Game implements Serializable{
     public void setMap(Map map) {
         this.map = map;
     }
+
+    public CarTool[] getToolInventory() {
+        return toolInventory;
+    }
+
+    public void setToolInventory(CarTool[] toolInventory) {
+        this.toolInventory = toolInventory;
+    }
+
+
+    
+    
     
     @Override
     public int hashCode() {
@@ -96,7 +109,6 @@ public class Game implements Serializable{
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + ", noPeople=" + noPeople + '}';
     }
-
-    
+   
     
 }
