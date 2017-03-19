@@ -7,6 +7,7 @@ package byui.cit260.theLastOfUs.control;
 
 import byui.cit260.theLastOfUs.model.Map;
 import byui.cit260.theLastOfUs.model.Scene;
+import thelastofus.TheLastOfUs;
 
 /**
  *
@@ -22,7 +23,8 @@ public class MapControl {
     }
 
     static void moveActorToStartingLocation(Map map) {
-        System.out.println("\n Function called");
+        System.out.println("\nFunction successfully created");
+    
     }
     public enum SceneType{
     start,
