@@ -7,6 +7,7 @@ package byui.cit260.theLastOfUs.View;
 
 import byui.cit260.theLastOfUs.model.CarPartsInventory;
 import byui.cit260.theLastOfUs.model.Game;
+import byui.cit260.theLastOfUs.model.CarTool;
 import thelastofus.TheLastOfUs;
 
 /**
@@ -85,7 +86,7 @@ class GameMenuView extends View{
     StringBuilder line;
         
         Game game = TheLastOfUs.getCurrentGame();
-        CarTool [] toolInventory = game.getToolInventory();
+        CarTool[] toolInventory = game.getToolInventory();
         
         System.out.println("\n        LIST OF CAR TOOLS                ");
         line = new StringBuilder();

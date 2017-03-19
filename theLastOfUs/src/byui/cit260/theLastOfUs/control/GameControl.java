@@ -6,6 +6,7 @@
 package byui.cit260.theLastOfUs.control;
 
 import byui.cit260.theLastOfUs.control.MapControl.SceneType;
+import byui.cit260.theLastOfUs.model.CarTool;
 import byui.cit260.theLastOfUs.model.Car;
 import byui.cit260.theLastOfUs.model.CarPartsInventory;
 import byui.cit260.theLastOfUs.model.Game;
@@ -128,12 +129,12 @@ public class GameControl {
     wrench,
     screwdriver,
     jack,
-    socket,
+    socket;
     
     
     }
     public static CarTool[] createToolList(){
-    CarTool[] toolIventory = new CarTool[4];
+    CarTool[] toolInventory = new CarTool[4];
     
      CarTool wrench = new CarTool();
         wrench.setToolName("set of wrenches");
@@ -159,6 +160,6 @@ public class GameControl {
         socket.setUnitPrice(5);
         toolInventory[Tool.socket.ordinal()] = socket;
         
-        return toolIventory;
+        return toolInventory;
     }
 }
