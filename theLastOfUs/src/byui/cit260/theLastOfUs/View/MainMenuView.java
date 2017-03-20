@@ -76,7 +76,7 @@ public class MainMenuView extends View {
         System.out.println("\nstartExistingGame function called.");}
 
     private void displayHelpMenu() {
-        System.out.println("\n Your objective is to help the character find the best cure for"
+        System.out.println("\nYour objective is to help the character find the best cure for"
                 + "\nthe deadly virus that has sprung over the country. You have to first regain"
                 + "\nhealth and begin your trip.");
     }

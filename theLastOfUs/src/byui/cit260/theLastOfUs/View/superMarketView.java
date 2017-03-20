@@ -27,7 +27,6 @@ super("\n|ST GEORGES SUPERMARKET                                 |"
                 + "\nB - Bread and Milk                                         "
                 + "\nW - Water Bottle and Protein bars                          "
                 + "\nA - Apple juice and bananas"
-                + "\nM - View map                                               "
                 + "\nQ - Quit                                                   ")
                 ;
     }
@@ -47,10 +46,6 @@ super("\n|ST GEORGES SUPERMARKET                                 |"
             case "A":
                 this.appleSearch();
                 break;
-            case "M":
-                this.seeLocations();
-                break;
-            
             default :
                 System.out.println("\n***Invalid Selection, Try Again!***");
                 break;
@@ -78,25 +73,6 @@ super("\n|ST GEORGES SUPERMARKET                                 |"
         ApplePickView appleP = new ApplePickView();
         appleP.applePick();
 }
-
-
-    
-//visit map functions
-    private void seeLocations() {
-         MapControl.createNewMap();
-    MapView map = new MapView();
-    map.watchMap();
-    }
-
-
-
-   
-
-    
-
-    
-
-    
    
 }
   

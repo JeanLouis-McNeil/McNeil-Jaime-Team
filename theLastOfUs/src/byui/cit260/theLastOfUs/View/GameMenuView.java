@@ -8,6 +8,9 @@ package byui.cit260.theLastOfUs.View;
 import byui.cit260.theLastOfUs.model.CarPartsInventory;
 import byui.cit260.theLastOfUs.model.Game;
 import byui.cit260.theLastOfUs.model.CarTool;
+import byui.cit260.theLastOfUs.model.Location;
+import byui.cit260.theLastOfUs.model.Map;
+import byui.cit260.theLastOfUs.model.Scene;
 import thelastofus.TheLastOfUs;
 
 /**
@@ -54,7 +57,65 @@ class GameMenuView extends View{
     }
 
     private void displayMap() {
-        System.out.println("\n displayMap Function called");}
+        StringBuilder lines;
+        
+        Game game = TheLastOfUs.getCurrentGame();
+        Map locations = game.getMap();
+        
+        System.out.println("\n|            THE CURSED LAND                |");
+        lines = new StringBuilder("                                            ");
+        lines.insert(1, "1");
+        lines.insert(6, "2");
+        lines.insert(11, "3");
+        lines.insert(16, "4");
+        lines.insert(21, "5");
+        lines.insert(26, "6");
+        lines.insert(31, "7");
+        lines.insert(36, "8");
+        lines.insert(41, "9");
+        lines.insert(46, "10");
+        System.out.println(lines.toString());
+        
+        for (Location row : locations ){
+            lines = new StringBuilder("                                        ");
+            lines.insert(0, "--------------------------------------------------");
+            lines.insert(0, "1");
+            lines.insert(0, "2");
+            lines.insert(0, "3");
+            lines.insert(0, "4");
+            lines.insert(0, "5");
+            lines.insert(0, "6");
+            lines.insert(0, "7");
+            lines.insert(0, "8");
+            System.out.println(lines.toString()); 
+        
+            for (Location col : locations){
+                lines = new StringBuilder("                                             ");
+                lines = new StringBuilder("                                        ");
+            lines.insert(0, "|");
+            lines.insert(5, "|");
+            lines.insert(10, "|");
+            lines.insert(15, "|");
+            lines.insert(20, "|");
+            lines.insert(25, "|");
+            lines.insert(30, "|");
+            lines.insert(35, "|");
+            lines.insert(40, "|");
+            lines.insert(45, "|");
+            System.out.println(lines.toString());
+
+            location = Location[row][column];
+             if (Location.isVisited = true){
+             System.out.println(Scene.setDisplaySymbol(" "));
+             }
+             else {
+             System.out.println("??");
+             
+             }
+            
+            }
+        }
+    }
 
     private void viewInventory() {
         StringBuilder line;
