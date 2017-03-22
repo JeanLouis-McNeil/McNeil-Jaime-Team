@@ -24,9 +24,9 @@ public class MapControl {
         GameControl.assignScenesToLocations(map, scenes);
     return map;
     }
-
-    public static void moveActorToStartingLocation(Character1 character, Point coordinates) throws MapControlException {
-        Map map = TheLastOfUs.getCurrentGame().getMap();
+    
+    public static void moveActorToLocation(Character1 character, Point coordinates) throws MapControlException{
+            Map map = TheLastOfUs.getCurrentGame().getMap();
         int newRow = coordinates.x-1;
         int newColumn = coordinates.y-1;
         
@@ -39,6 +39,8 @@ public class MapControl {
         }
   
     }
+    public static void moveActorToStartingLocation(Map map){
+        System.out.println("Function called");}
     
     
     public enum SceneType{

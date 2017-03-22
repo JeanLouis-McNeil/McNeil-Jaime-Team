@@ -104,7 +104,6 @@ class GameMenuView extends View{
             lines.insert(45, "|");
             System.out.println(lines.toString());
 
-            location = Location[row][column];
              if (Location.isVisited = true){
              System.out.println(Scene.setDisplaySymbol(" "));
              }
