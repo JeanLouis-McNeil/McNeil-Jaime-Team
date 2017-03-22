@@ -95,7 +95,11 @@ public class Location implements Serializable{
     }
 
     public void setScene(Scene scene) {
-        System.out.println("\n Function called");}
+        this.scene = scene;
+    }
 
-   
+    public Scene getScene()
+    {
+        return scene;
+    }
 }
