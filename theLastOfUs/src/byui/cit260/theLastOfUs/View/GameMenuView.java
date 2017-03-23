@@ -5,6 +5,7 @@
  */
 package byui.cit260.theLastOfUs.View;
 
+import byui.cit260.theLastOfUs.control.GameControl;
 import byui.cit260.theLastOfUs.model.CarPartsInventory;
 import byui.cit260.theLastOfUs.model.Game;
 import byui.cit260.theLastOfUs.model.CarTool;
@@ -20,7 +21,8 @@ import thelastofus.TheLastOfUs;
 class GameMenuView extends View{
 
     public GameMenuView() {
-        super("\n                      GAME MENU                            "
+        super("\n                      GAME MENU                           "
+                + "\nG - Begin game "
                 + "\nM - View map "
                 + "\nI - View Inventory "
                 + "\nC - View list of characters "
@@ -34,6 +36,9 @@ class GameMenuView extends View{
         value = value.toUpperCase();// convert menuOption to upper case.
 
         switch (value) {
+            case "G":
+                this.beginGame();
+                break;
             case "M":
                 this.displayMap();
                 break;
@@ -62,7 +67,7 @@ class GameMenuView extends View{
         Game game = TheLastOfUs.getCurrentGame();
         Location[][] locations = game.getMap().getLocations();
 
-        System.out.println("\n|            THE CURSED LAND                |");
+        System.out.println("\n|              THE CURSED LAND                  |");
         lines = new StringBuilder("                                            ");
         lines.insert(1, "1");
         lines.insert(6, "2");
@@ -72,47 +77,31 @@ class GameMenuView extends View{
         lines.insert(26, "6");
         lines.insert(31, "7");
         lines.insert(36, "8");
-        lines.insert(41, "9");
-        lines.insert(46, "10");
+
         System.out.println(lines.toString());
 
         for (Location[] row : locations) {
-            lines = new StringBuilder("                                        ");
-            lines.insert(0, "--------------------------------------------------");
-            lines.insert(0, "1");
-            lines.insert(0, "2");
-            lines.insert(0, "3");
-            lines.insert(0, "4");
-            lines.insert(0, "5");
-            lines.insert(0, "6");
-            lines.insert(0, "7");
-            lines.insert(0, "8");
+            lines = new StringBuilder("");
+            
+            lines.insert(0, "-----------------------------------------");
             System.out.println(lines.toString());
 
             for (Location location : row) {
-                lines = new StringBuilder("                                             ");
-                lines = new StringBuilder("                                        ");
-                lines.insert(0, "|");
-                lines.insert(5, "|");
-                lines.insert(10, "|");
-                lines.insert(15, "|");
-                lines.insert(20, "|");
-                lines.insert(25, "|");
-                lines.insert(30, "|");
-                lines.insert(35, "|");
-                lines.insert(40, "|");
-                lines.insert(45, "|");
-                System.out.println(lines.toString());
-
+            lines = new StringBuilder("");
+            lines.insert(0, "|");
+            System.out.print(lines.toString());
                 if (location.isVisited() == true) {
                     System.out.println(location.getScene().getDisplaySymbol());
                 } else {
-                    System.out.println("??");
+                    System.out.print(" ?? ");
 
                 }
-
-            }
+        
+                
+                }
+            System.out.println("|");
         }
+        System.out.println("-----------------------------------------");
     }
 
     private void viewInventory() {
@@ -122,14 +111,14 @@ class GameMenuView extends View{
         CarPartsInventory[] partsInventory = game.getPartInventory();
 
         System.out.println("\n        LIST OF CAR PARTS                 ");
-        line = new StringBuilder();
+        line = new StringBuilder("                                      ");
         line.insert(0, "DESCRIPTION");
         line.insert(20, "REQUIRED");
         line.insert(30, "IN STOCK");
         System.out.println(line.toString());
 
         for (CarPartsInventory item : partsInventory) {
-            line = new StringBuilder();
+            line = new StringBuilder("                                   ");
             line.insert(0, item.getPartType());
             line.insert(23, item.getRequiredAmount());
             line.insert(33, item.getPartQuantity());
@@ -149,14 +138,14 @@ class GameMenuView extends View{
         CarTool[] toolInventory = game.getToolInventory();
 
         System.out.println("\n        LIST OF CAR TOOLS                ");
-        line = new StringBuilder();
+        line = new StringBuilder("                                     ");
         line.insert(0, "DESCRIPTION");
         line.insert(20, "IN STOCK");
         line.insert(30, "UNIT PRICE");
         System.out.println(line.toString());
 
         for (CarTool tool : toolInventory) {
-            line = new StringBuilder();
+            line = new StringBuilder("                                    ");
             line.insert(0, tool.getToolName());
             line.insert(23, tool.getToolQuantity());
             line.insert(33, tool.getUnitPrice());
@@ -167,6 +156,12 @@ class GameMenuView extends View{
 
     private void gameHelp() {
         System.out.println("\n gameHelp Function called");
+    }
+
+    private void beginGame() {
+    GameControl.createNewGame(TheLastOfUs.getPlayer());
+    FindResourcesView resMenu = new FindResourcesView();
+    resMenu.display();
     }
 
 }

@@ -62,7 +62,7 @@ public class GameControl {
             locations[0][5].setScene(scenes[SceneType.supermarket.ordinal()]);
             locations[0][6].setScene(scenes[SceneType.toolsroom.ordinal()]);
             locations[0][7].setScene(scenes[SceneType.drugstore.ordinal()]);
-            locations[8][8].setScene(scenes[SceneType.carchoice.ordinal()]);
+            locations[1][0].setScene(scenes[SceneType.carchoice.ordinal()]);
     }
 
 
@@ -82,43 +82,43 @@ public class GameControl {
         
         CarPartsInventory wheel = new CarPartsInventory();
         wheel.setPartType("wheel");
-        wheel.setPartQuantity(8);
-        wheel.setRequiredAmount(6);
+        wheel.setPartQuantity(0);
+        wheel.setRequiredAmount(0);
         partsInventory[Item.wheel.ordinal()] = wheel;
         
         CarPartsInventory bolt = new CarPartsInventory();
         bolt.setPartType("bolt");
-        bolt.setPartQuantity(100);
-        bolt.setRequiredAmount(75);
+        bolt.setPartQuantity(0);
+        bolt.setRequiredAmount(0);
         partsInventory[Item.bolt.ordinal()] = bolt;
         
         CarPartsInventory sparkplug = new CarPartsInventory();
         sparkplug.setPartType("sparkplug");
-        sparkplug.setPartQuantity(10);
-        sparkplug.setRequiredAmount(8);
+        sparkplug.setPartQuantity(0);
+        sparkplug.setRequiredAmount(0);
         partsInventory[Item.sparkplug.ordinal()] = sparkplug;
         
         CarPartsInventory oilQuarts = new CarPartsInventory();
         oilQuarts.setPartType("Oil Quarts");
-        oilQuarts.setPartQuantity(10);
-        oilQuarts.setRequiredAmount(6);
+        oilQuarts.setPartQuantity(0);
+        oilQuarts.setRequiredAmount(0);
         partsInventory[Item.oilQuart.ordinal()] = oilQuarts;
         
         CarPartsInventory battery = new CarPartsInventory();
         battery.setPartType("battery");
-        battery.setPartQuantity(2);
+        battery.setPartQuantity(0);
         battery.setRequiredAmount(1);
         partsInventory[Item.battery.ordinal()] = battery;
         
         CarPartsInventory brakePads = new CarPartsInventory();
         brakePads.setPartType("brake shoes");
-        brakePads.setPartQuantity(20);
+        brakePads.setPartQuantity(0);
         brakePads.setRequiredAmount(12);
         partsInventory[Item.brakePads.ordinal()] = brakePads;
         
         CarPartsInventory transFl = new CarPartsInventory();
         transFl.setPartType("Transmission fluid");
-        transFl.setPartQuantity(10);
+        transFl.setPartQuantity(0);
         transFl.setRequiredAmount(5);
         partsInventory[Item.transFl.ordinal()] = transFl;
         
@@ -143,13 +143,13 @@ public class GameControl {
         toolInventory[Tool.wrench.ordinal()] = wrench;
         
         CarTool screwdriver = new CarTool();
-        screwdriver.setToolName("set of screwdrivers");
+        screwdriver.setToolName("Screwdrivers Set");
         screwdriver.setToolQuantity(10);
         screwdriver.setUnitPrice(5);
         toolInventory[Tool.screwdriver.ordinal()] = screwdriver;
         
         CarTool jack = new CarTool();
-        jack.setToolName("hydraulic jack found in a an abandoned truck");
+        jack.setToolName("hydraulic jack");
         jack.setToolQuantity(10);
         jack.setUnitPrice(5);
         toolInventory[Tool.jack.ordinal()] = jack;
