@@ -24,21 +24,11 @@ public class MapControl {
         GameControl.assignScenesToLocations(map, scenes);
     return map;
     }
-    
-    public static void moveActorToLocation(Character1 character, Point coordinates) throws MapControlException{
-            Map map = TheLastOfUs.getCurrentGame().getMap();
-        int newRow = coordinates.x-1;
-        int newColumn = coordinates.y-1;
-        
-        if (newRow < 0 || newRow >= map.getRowCount() ||
-                newColumn < 0 || newColumn >=map.getColumnCount()) {
-        throw new MapControlException("Can not move charater to  location"
-                + coordinates.x + ", " + coordinates.y 
-                + "because that location is outside"
-                + "the bounds of the map");
-        }
-  
+   
+    public static void moveActorToLocation() {
+            
     }
+    
     public static void moveActorToStartingLocation(Map map){
         System.out.println("Function called");}
     

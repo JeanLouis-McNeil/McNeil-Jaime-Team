@@ -34,9 +34,10 @@ public class StartProgramView extends View{
         );
     }
 
+    @Override
     public boolean doAction(String playersName) {
         
-        if (playersName.length() < 2){
+        if (playersName.length() < 4){
             System.out.println("\nInvalid player name: "
                                 + "The name must be greater than one character in lenght.");
         

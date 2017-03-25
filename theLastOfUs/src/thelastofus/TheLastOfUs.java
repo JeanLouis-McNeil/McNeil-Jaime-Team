@@ -19,6 +19,12 @@ import byui.cit260.theLastOfUs.model.Scene3;
 import byui.cit260.theLastOfUs.model.Scene4;
 import byui.cit260.theLastOfUs.model.Scene5;
 import byui.cit260.theLastOfUs.model.Scene6;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,10 +35,49 @@ public class TheLastOfUs {
     private static Game currentGame = null;
     private static Player player = null;
     private static Character1 character;
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        
+       try {
+           TheLastOfUs.inFile = new BufferedReader(new InputStreamReader(System.in));
+           TheLastOfUs.outFile = new PrintWriter (System.out, true);
+           
+           String filePath = "log.txt";
+           TheLastOfUs.logFile = new PrintWriter(filePath);
+           
+                   //Create a StartProgramView display.
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.display();
+       }
+       catch (Throwable e){
+       System.out.println("Exception: " + e.toString()
+               + "\nCause: " + e.getCause()
+               + "\nMessage: " + e.getMessage());
+       e.printStackTrace();
+       }
+       finally{
+           try {
+               if (TheLastOfUs.inFile != null)
+               TheLastOfUs.inFile.close();
+               if (TheLastOfUs.outFile != null)
+               TheLastOfUs.outFile.close();
+               if (TheLastOfUs.logFile != null)
+               TheLastOfUs.logFile.close();
+           } catch (IOException ex) {
+               System.out.println("Error closing files!");
+           return;
+           }
+           
+       }
+       
        
         Game tGame = new Game();
     tGame.setTotalTime(30.0);
@@ -145,9 +190,7 @@ public class TheLastOfUs {
         System.out.println(partInfo);
         
         
-        //Create a StartProgramView display.
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
+
         
         
     
@@ -175,4 +218,39 @@ public class TheLastOfUs {
     
     public static void setCharacter1(Character1 character) {
         TheLastOfUs.character = character;}
+
+    public static Character1 getCharacter() {
+        return character;
     }
+
+    public static void setCharacter(Character1 character) {
+        TheLastOfUs.character = character;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        TheLastOfUs.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        TheLastOfUs.inFile = inFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        TheLastOfUs.logFile = logFile;
+    }
+    
+    
+}
+

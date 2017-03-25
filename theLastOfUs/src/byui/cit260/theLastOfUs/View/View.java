@@ -5,14 +5,21 @@
  */
 package byui.cit260.theLastOfUs.View;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import thelastofus.TheLastOfUs;
 
 /**
  *
  * @author iu
  */
+
+
 public abstract class View implements ViewInterface {
     protected String displayMessage;
+    protected final BufferedReader keyboard = TheLastOfUs.getInFile();
+    protected final PrintWriter console = TheLastOfUs.getOutFile();
     
     public View(){
     }
@@ -25,9 +32,8 @@ public abstract class View implements ViewInterface {
     public void display(){
     boolean done = false;
         do {
+            this.console.println(this.displayMessage);
             String value = this.getInput();
-            if (value.toUpperCase().equals("Q"))
-                   return;
             done = this.doAction(value);
                 }
    
@@ -36,23 +42,27 @@ public abstract class View implements ViewInterface {
     
     @Override
     public String getInput(){
-    Scanner input =  new Scanner(System.in);//get infile for keyboard
     String value = null; //value to be returned
     boolean valid = false; //initialize to not valid
     
+    try {
     while (!valid) { 
             System.out.println("\n" + this.displayMessage);
     
-    value = input.nextLine();
+    value = this.keyboard.readLine();
     value = value.trim();
     
     if (value.length() < 1) {
-        System.out.println("\n You must enter a value ");
+        ErrorView.display(this.getClass().getName(), "You must enter a value.");
         continue;
         }
         break;  
     }
-    return value;
+    }
+    catch (Exception e) {
+    ErrorView.display(this.getClass().getName(), " Error reading message " + e.getMessage());
+    }
+    return null;
     }
 }
 
