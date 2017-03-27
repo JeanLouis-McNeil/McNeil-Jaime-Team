@@ -4,20 +4,12 @@
  * and open the template in the editor.
  */
 package byui.cit260.theLastOfUs.View;
-
-import byui.cit260.theLastOfUs.control.GameControl;
+ import byui.cit260.theLastOfUs.control.GameControl;
 import byui.cit260.theLastOfUs.model.Player;
 import java.util.Scanner;
-
-/**
- *
- * @author iu
- */
 public class StartProgramView extends View{
-        
-        
-    public StartProgramView() {
-                    super("\n**************************************************************"
+public StartProgramView() {
+super("\n**************************************************************"
                         + "\n                                                            "
                         + "\nThis is the game of The Last of Us.                         "
                         + "\nIn this game, you will help Ezechias to reach the leader of "
@@ -30,17 +22,14 @@ public class StartProgramView extends View{
                         + "\n others from the deadly virus spread in the air   "
                         + "\n years ago.                                       "
                         + "\nGood Luck, Dear."
-                            + "\nPlease enter your name."
-        );
-    }
-
-    @Override
+        + "Please enter your name: ") ;
+}
+@Override
     public boolean doAction(String playersName) {
         
-        if (playersName.length() < 4){
+        if (playersName.isEmpty()){
             System.out.println("\nInvalid player name: "
                                 + "The name must be greater than one character in lenght.");
-        
         return false;
                         }
     Player player = GameControl.createPlayer(playersName);
@@ -51,10 +40,10 @@ public class StartProgramView extends View{
     }
     this.displayNextView(player);
     return true;
+    
     }
 
     private void displayNextView(Player player) {
-        //display a welcome message
         System.out.println("\n================================================"
                          + "\nWelcome to the game " + player.getName()
                          + "\nWe hope you have a lot of fun!"
@@ -64,14 +53,5 @@ public class StartProgramView extends View{
         MainMenuView mainMenuView = new MainMenuView();
                 
         //Display the mainmenuview
-        mainMenuView.display();
-                
-    }
+        mainMenuView.display();}
 }
-
-           
-    
-    
-    
-
-   
