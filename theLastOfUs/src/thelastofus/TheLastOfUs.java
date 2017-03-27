@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package thelastofus;
-
+package thelastofus; 
 import byui.cit260.theLastOfUs.View.StartProgramView;
 import byui.cit260.theLastOfUs.model.Car;
 import byui.cit260.theLastOfUs.model.CarPartsInventory;
@@ -56,6 +55,7 @@ public class TheLastOfUs {
                    //Create a StartProgramView display.
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
+        return;
        }
        catch (Throwable e){
        System.out.println("Exception: " + e.toString()
@@ -253,4 +253,6 @@ public class TheLastOfUs {
     
     
 }
+
+
 
