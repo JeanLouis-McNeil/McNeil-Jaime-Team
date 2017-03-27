@@ -21,38 +21,22 @@ public abstract class View implements ViewInterface {
     protected final BufferedReader keyboard = TheLastOfUs.getInFile();
     protected final PrintWriter console = TheLastOfUs.getOutFile();
     
-    public View(){
-    }
-    
     public View (String message) {
         this.displayMessage = message;
     }
     
-    @Override
-    public void display(){
-    boolean done = false;
-        do {
-            this.console.println(this.displayMessage);
-            String value = this.getInput();
-            done = this.doAction(value);
-                }
-   
-    while(!done);
-}
-    
-    @Override
+     @Override
     public String getInput(){
-    String value = null; //value to be returned
+        
     boolean valid = false; //initialize to not valid
-    
+    String selection = null;//value to be returned
     try {
     while (!valid) { 
-            System.out.println("\n" + this.displayMessage);
     
-    value = this.keyboard.readLine();
-    value = value.trim();
+    selection = this.keyboard.readLine();
+    selection = selection.trim();
     
-    if (value.length() < 1) {
+    if (selection.length() < 1) {
         ErrorView.display(this.getClass().getName(), "You must enter a value.");
         continue;
         }
@@ -62,7 +46,24 @@ public abstract class View implements ViewInterface {
     catch (Exception e) {
     ErrorView.display(this.getClass().getName(), " Error reading message " + e.getMessage());
     }
-    return null;
+    return selection;
     }
+    
+    @Override
+    public void display(){
+        
+        String value;
+    boolean done = false;
+        
+    do {
+        this.console.println(this.displayMessage);
+        value = this.getInput();
+        
+            done = this.doAction(value);
+                }
+   
+    while(!done);
 }
-
+    
+   
+}
