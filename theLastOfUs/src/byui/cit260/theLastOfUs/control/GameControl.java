@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.theLastOfUs.control;
-
+package byui.cit260.theLastOfUs.control; 
+import byui.cit260.theLastOfUs.Exceptions.GameControlException;
 import byui.cit260.theLastOfUs.control.MapControl.SceneType;
 import byui.cit260.theLastOfUs.model.CarTool;
 import byui.cit260.theLastOfUs.model.Car;
@@ -14,6 +14,11 @@ import byui.cit260.theLastOfUs.model.Location;
 import byui.cit260.theLastOfUs.model.Map;
 import byui.cit260.theLastOfUs.model.Player;
 import byui.cit260.theLastOfUs.model.Scene;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import thelastofus.TheLastOfUs;
 
 /**
@@ -63,6 +68,35 @@ public class GameControl {
             locations[0][6].setScene(scenes[SceneType.toolsroom.ordinal()]);
             locations[0][7].setScene(scenes[SceneType.drugstore.ordinal()]);
             locations[1][0].setScene(scenes[SceneType.carchoice.ordinal()]);
+    }
+
+    public static void saveGame(Game currentGame, String filePath)
+        throws GameControlException {
+        try(FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+
+            output.writeObject(currentGame);
+            
+        }
+        catch (Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filePath) 
+    throws GameControlException {
+         Game game = null;
+                try(FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+
+                    game = (Game) input.readObject();
+            
+        }
+        catch (Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+       
+                TheLastOfUs.setCurrentGame(game);
     }
 
 
@@ -130,9 +164,7 @@ public class GameControl {
     screwdriver,
     jack,
     socket;
-    
-    
-    }
+ }
     public static CarTool[] createToolList(){
     CarTool[] toolInventory = new CarTool[4];
     
