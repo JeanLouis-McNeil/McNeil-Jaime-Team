@@ -4,20 +4,10 @@
  * and open the template in the editor.
  */
 package byui.cit260.theLastOfUs.View;
-
 import byui.cit260.theLastOfUs.control.GameControl;
 import java.util.Scanner;
 import thelastofus.TheLastOfUs;
-
-/**
- *
- * @author iu
- */
 public class MainMenuView extends View {
-    
-
-                  
-
     public MainMenuView() {
                     super("\n----------------------------------------------------------"
                 + "\n |Main Menu                                              |"
@@ -29,18 +19,11 @@ public class MainMenuView extends View {
                 + "\nQ - Quit"
                 + "\n----------------------------------------------------------")
                 ;
-
-    }
-         
-    
-   
-
+}
     @Override
     public boolean doAction(String value) {
-        
-        value = value.toUpperCase();// convert menuOption to upper case.
-        
-        switch (value) {
+         value = value.toUpperCase();// convert menuOption to upper case.
+         switch (value) {
             case "N":
                     this.startNewGame();
                     break;
@@ -58,36 +41,38 @@ public class MainMenuView extends View {
                 break;
         }
         return false;
-    
-                    
-        
-        
-            }
-   
-    
-
-    private void startNewGame() {
+    }
+private void startNewGame() {
        GameControl.createNewGame(TheLastOfUs.getPlayer());
     GameMenuView gameMenu = new GameMenuView();
     gameMenu.display();
     }
-
-    private void startExistingGame() {
-        System.out.println("\nstartExistingGame function called.");}
-
-    private void displayHelpMenu() {
+private void startExistingGame() {
+        this.console.println("\nEnter the file path where the game is to be saved");
+String filePath = this.getInput();
+     try {
+        GameControl.getSavedGame(filePath);
+     }
+     catch (Exception ex){
+         ErrorView.display("MainMenuView", ex.getMessage());
+     }
+    GameMenuView gameMenu = new GameMenuView();
+    gameMenu.display();
+    }
+private void displayHelpMenu() {
         System.out.println("\nYour objective is to help the character find the best cure for"
                 + "\nthe deadly virus that has sprung over the country. You have to first regain"
                 + "\nhealth and begin your trip.");
-    }
-    
+    } 
  private void saveGame() {
-        System.out.println("\nsaveGame function called.");
+     this.console.println("\nEnter the file path where the game is to be saved");
+String filePath = this.getInput();
+     try {
+        GameControl.saveGame(TheLastOfUs.getCurrentGame(), filePath);
+     }
+     catch (Exception ex){
+         ErrorView.display("MainMenuView", ex.getMessage());
+     }
 }
-
-
-
-
 }
-
 
