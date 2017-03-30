@@ -12,6 +12,8 @@ import byui.cit260.theLastOfUs.model.CarTool;
 import byui.cit260.theLastOfUs.model.Location;
 import byui.cit260.theLastOfUs.model.Map;
 import byui.cit260.theLastOfUs.model.Scene;
+import java.io.FileWriter;
+import java.io.IOException;
 import thelastofus.TheLastOfUs;
 
 /**
@@ -25,7 +27,9 @@ class GameMenuView extends View{
                 + "\nG - Begin game "
                 + "\nM - View map "
                 + "\nI - View Inventory "
-                + "\nC - View list of characters "
+                + "\nC - View list of characters"
+                + "\nP - Print report "
+                
                 + "\nS - Car status"
                 + "\nH - Help"
                 + "\nQ - Quit");
@@ -47,6 +51,9 @@ class GameMenuView extends View{
                 break;
             case "C":
                 this.viewCharacter();
+                break;
+            case "P":
+                this.printReport();
                 break;
             case "S":
                 this.carStatus();
@@ -163,5 +170,38 @@ class GameMenuView extends View{
     FindResourcesView resMenu = new FindResourcesView();
     resMenu.display();
     }
+
+    private void printReport() {
+        FileWriter outFile = null;
+    
+    String fileLocation = "sceneReport.txt";
+    
+    try {
+    outFile = new FileWriter(fileLocation);
+    outFile.write("1 - I entered the game\n");
+    outFile.write("1 - I also read the instructions.\n");
+    outFile.flush();
+    }
+    catch (IOException ex1){
+    System.out.println("Error closing file...");
+    } finally {
+        if (outFile != null) {
+        try{
+            outFile.close();
+        }   catch (IOException ex2) {
+            System.out.println("Error closing files.");
+        }
+        }
+    }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
