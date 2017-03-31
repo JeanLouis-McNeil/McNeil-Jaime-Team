@@ -22,7 +22,7 @@ super("\n**************************************************************"
                         + "\n others from the deadly virus spread in the air   "
                         + "\n years ago.                                       "
                         + "\nGood Luck, Dear."
-        + "Please enter your name: ") ;
+        + "\nPlease enter your name: ") ;
 }
 @Override
     public boolean doAction(String playersName) {

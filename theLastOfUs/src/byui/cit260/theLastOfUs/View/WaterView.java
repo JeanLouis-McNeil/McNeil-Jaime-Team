@@ -6,6 +6,8 @@
 package byui.cit260.theLastOfUs.View;
 
 import byui.cit260.theLastOfUs.control.GameControl;
+import java.io.FileWriter;
+import java.io.IOException;
 import thelastofus.TheLastOfUs;
 
 /**
@@ -19,6 +21,7 @@ public class WaterView extends View{
                 + "\nJ - Jugs                                                  "
                 + "\nG - Gallons"
                 + "\nL- Leave and exit"
+            + "\nP - Print report"
                 + "\nQ - Quit")
                 ;
    
@@ -49,10 +52,38 @@ public class WaterView extends View{
                     break;
             case "L" :
                     this.goFindYourWay();
+            case "P":
+                    this.sceneReport();
+                    break;
+                    
+                    
+                    
             default :
                 System.out.println("\n***Invalid Selection, Try Again!***");
                 break;
         }
         return false;
     }
+
+    private void sceneReport() {
+       FileWriter outFile = null;
+    
+    String fileLocation = "sceneReport.txt";
+    
+    try {
+    outFile = new FileWriter(fileLocation);
+    outFile.write("I chose to rink water for my health recovery.\n");
+    outFile.flush();
+    }
+    catch (IOException ex1){
+    System.out.println("Error closing file...");
+    } finally {
+        if (outFile != null) {
+        try{
+            outFile.close();
+        }   catch (IOException ex2) {
+            System.out.println("Error closing files.");
+        }
+        }
+    } }
 }

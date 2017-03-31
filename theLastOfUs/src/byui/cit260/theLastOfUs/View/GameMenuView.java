@@ -14,6 +14,7 @@ import byui.cit260.theLastOfUs.model.Map;
 import byui.cit260.theLastOfUs.model.Scene;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import thelastofus.TheLastOfUs;
 
 /**
@@ -29,6 +30,7 @@ class GameMenuView extends View{
                 + "\nI - View Inventory "
                 + "\nC - View list of characters"
                 + "\nP - Print report "
+                + "\nR - Print inventory report"
                 
                 + "\nS - Car status"
                 + "\nH - Help"
@@ -54,6 +56,9 @@ class GameMenuView extends View{
                 break;
             case "P":
                 this.printReport();
+                break;
+            case "R":
+                this.printInventoryList();
                 break;
             case "S":
                 this.carStatus();
@@ -193,6 +198,29 @@ class GameMenuView extends View{
         }
         }
     }
+    }
+
+    private void printInventoryList() {
+                Game game = TheLastOfUs.getCurrentGame();
+        CarPartsInventory[] partsInventory = game.getPartInventory();
+                String outputLocation = new String();
+             this.console.println("\nEnter the file path where the game is to be saved");
+String filePath = this.getInput();
+
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+        
+            out.println("\n\n               Inventory Report            ");
+            out.printf("%n%-20s%10s%10s", "Description", "Quantity", "Required");
+            out.printf("%n%-20s%10s%10s", "-----------", "--------", "--------");
+            
+            for (CarPartsInventory item : partsInventory) {
+                out.printf("%n%-20s%7d%13.2f", item.getPartType()
+                                             , item.getPartQuantity()
+                                             , item.getRequiredAmount());
+            }
+        }   catch (IOException ex) {
+                System.out.println(("I/O Error: " + ex.getMessage()));
+        }
     }
     
     

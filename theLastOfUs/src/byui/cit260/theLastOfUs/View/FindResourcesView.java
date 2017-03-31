@@ -9,6 +9,8 @@ import byui.cit260.theLastOfUs.control.GameControl;
 import byui.cit260.theLastOfUs.control.ProteinResourceControl;
 import byui.cit260.theLastOfUs.control.SerumResourceControl;
 import byui.cit260.theLastOfUs.control.WaterResourceControl;
+import java.io.FileWriter;
+import java.io.IOException;
 import thelastofus.TheLastOfUs;
 
 /**
@@ -29,7 +31,8 @@ public FindResourcesView() {
                 + "\nW - Water                                                 "
                 + "\nS - Serum                                                 "
                 + "\nB - Protein Bar                                          "
-                + "\nG - Leave and find your way out.                          "
+                + "\nG - Leave and find your way out.                        "
+                + "\nP - Print report  "
                 + "\nQ - Quit                                                  ")
                 ;
        
@@ -51,6 +54,9 @@ public FindResourcesView() {
                     break;
             case "G":
                     this.goFindYourWay();
+                    break;
+            case "P":
+                    this.sceneReport();
                     break;
             default :
                 System.out.println("\n***Invalid Selection, Try Again!***");
@@ -87,6 +93,28 @@ private void goFindYourWay() {
     LeaveHospitalView resMenu = new LeaveHospitalView();
     resMenu.findWayOut();}
 
+    private void sceneReport() {
+    FileWriter outFile = null;
+    
+    String fileLocation = "sceneReport.txt";
+    
+    try {
+    outFile = new FileWriter(fileLocation);
+    outFile.write("I found resources and I m healthy.\n");
+    outFile.flush();
+    }
+    catch (IOException ex1){
+    System.out.println("Error closing file...");
+    } finally {
+        if (outFile != null) {
+        try{
+            outFile.close();
+        }   catch (IOException ex2) {
+            System.out.println("Error closing files.");
+        }
+        }
+    }
+    }
  
 }
        

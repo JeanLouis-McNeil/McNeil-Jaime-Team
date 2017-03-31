@@ -5,6 +5,7 @@
  */
 package byui.cit260.theLastOfUs.View;
 import byui.cit260.theLastOfUs.control.GameControl;
+import byui.cit260.theLastOfUs.model.Player;
 import java.util.Scanner;
 import thelastofus.TheLastOfUs;
 public class MainMenuView extends View {
@@ -48,7 +49,8 @@ private void startNewGame() {
     gameMenu.display();
     }
 private void startExistingGame() {
-        this.console.println("\nEnter the file path where the game is to be saved");
+        this.console.println("\nEnter the file path where the game is to be saved"
+                );
 String filePath = this.getInput();
      try {
         GameControl.getSavedGame(filePath);
